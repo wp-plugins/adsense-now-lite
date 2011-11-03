@@ -4,7 +4,7 @@ Donate link: http://buy.ads-ez.com/adsense-now
 Tags: adsense, ad, ads, advertising, google
 Requires at least: 2.5
 Tested up to: 3.2
-Stable tag: 3.00
+Stable tag: 3.01
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss.
 
@@ -22,23 +22,17 @@ AdSense Now! gets you started with Google AdSense. No mess, no fuss.
 
 PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
-*AdSense Now! Lite* is the freely distributed version of a premium plugin. The [Pro version](http://buy.ads-ez.com/adsense-now/ "Pro version of the AdSense Now! plugin for only $3.95") gives you more control. It gives you filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned. Also in the works for the Pro version is a compatibility mode, which solves the issue of the ad insertion messing up your page appearances when using some  themes. The Pro version costs $3.95, and is appropriate if you expect to make more than $75 of ad revenue from your site.
+*AdSense Now! Lite* is the freely distributed version of a premium plugin. The [Pro version](http://buy.ads-ez.com/adsense-now/ "Pro version of the AdSense Now! plugin for only $3.95") gives you more control. It gives you filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned.
 
-If you think *AdSense Now!* is too lean and mean for your taste, try the full-fledged, feature rich plugin [Easy AdSense Pro](http://buy.ads-ez.com/easy-adsense "The complete solution for all things AdSense related").
+= New in 3.01 =
 
-Want to go beyond AdSense? Use my new plugin [Easy Ads](http://www.thulasidas.com/plugins/easy-ads/ "A new plugin to handle AdSense and its alternatives") that can handle [Clicksor](http://www.clicksor.com/pub/index.php?ref=105268 "Careful, don't double-date with AdSense and Clicksor, they get very jealous of each other!"), [BidVertiser](http://www.bidvertiser.com/bdv/bidvertiser/bdv_ref_publisher.dbm?Ref_Option=pub&Ref_PID=229404 "Another fine ad provider") or [Chitika](http://chitika.com/publishers.php?refid=manojt "Compatible with AdSense") and, of course, AdSense! In fact, the AdSense part of Easy Ads is very similar to *AdSense Now!*
-
-If you like *AdSense Now!*, you may want to check out my other plugins: [Theme Tweaker](http://www.thulasidas.com/plugins/theme-tweaker/ "To tweak the colors in your theme with no CSS/PHP editing") and [Easy LaTeX](http://www.thulasidas.com/plugins/easy-latex/ "To display mathematical equations in your blog using LaTeX"). And my plugin for plugin authors: [Easy Translator](http://www.thulasidas.com/plugins/easy-translator/  "To translate any plugin (with internationalized strings) to your language.").
-
-= New in 3.00 =
-
-Initial release of the Lite version.
+Trimming readme.txt.
 
 == Upgrade Notice ==
 
-= 3.00 =
+= 3.01 =
 
-Initial release of the Lite version.
+Trimming readme.txt.
 
 == Screenshots ==
 
@@ -84,6 +78,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.01: Initial release of the Lite version. [Nov 3, 2011]
 * V3.00: Initial release of the Lite version. [Nov 1, 2011]
 * V2.05: Documentation and admin-page display changes. Non-critical. [Aug 30, 2011]
 * V2.04: Bug fix. [Aug 29, 2011]
