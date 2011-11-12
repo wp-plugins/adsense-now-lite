@@ -4,7 +4,7 @@ Donate link: http://buy.ads-ez.com/adsense-now
 Tags: adsense, ad, ads, advertising, google
 Requires at least: 2.5
 Tested up to: 3.2
-Stable tag: 3.01
+Stable tag: 3.02
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss.
 
@@ -24,15 +24,15 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 *AdSense Now! Lite* is the freely distributed version of a premium plugin. The [Pro version](http://buy.ads-ez.com/adsense-now/ "Pro version of the AdSense Now! plugin for only $3.95") gives you more control. It gives you filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned.
 
-= New in 3.01 =
+= New in 3.02 =
 
-Trimming readme.txt.
+Releasing Korean translation and updating Thai translation. Admin interface changes.
 
 == Upgrade Notice ==
 
-= 3.01 =
+= 3.02 =
 
-Trimming readme.txt.
+Releasing Korean translation and updating Thai translation. Admin interface changes.
 
 == Screenshots ==
 
@@ -78,7 +78,8 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
-* V3.01: Initial release of the Lite version. [Nov 3, 2011]
+* V3.02: Releasing Korean translation and updating Thai translation. Admin interface changes.[Nov 12, 2011]
+* V3.01: Trimming readme.txt. [Nov 3, 2011]
 * V3.00: Initial release of the Lite version. [Nov 1, 2011]
 * V2.05: Documentation and admin-page display changes. Non-critical. [Aug 30, 2011]
 * V2.04: Bug fix. [Aug 29, 2011]

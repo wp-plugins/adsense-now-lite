@@ -25,6 +25,9 @@ echo '<script type="text/javascript" src="'. get_option('siteurl') . '/' . PLUGI
 <div class="wrap" style="width:850px">
 
 <h2>AdSense Now! Lite Setup <a href="http://validator.w3.org/" target="_blank"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Transitional" title="AdSense Now! Admin Page is certified Valid XHTML 1.0 Transitional" height="31" width="88" class="alignright"/></a></h2>
+<?php
+    renderInvite($myPlugins[$plgName]) ;
+?>
 <table class="form-table">
 <tr><th scope="row"><h3><?php _e('Instructions', 'easy-adsenser') ; ?></h3></th></tr>
 <tr valign="top">

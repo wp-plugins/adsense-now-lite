@@ -45,9 +45,10 @@ function makeTextWithTooltipTag($plg, $text, $tip, $title='', $width='')
   return $return ;
 }
 function renderPlg($name, $plg) {
+  if ($plg['isBook']) return ;
   $value = '<em><strong>'.$plg['value'].'</strong></em>';
   $desc = $plg['desc'] ;
-  $toolTip = $plg['title'] ;
+  $title = $plg['title'] ;
   $url = 'http://www.thulasidas.com/plugins/' . $name ;
   $link = '<b><a href="' . $url . '" target="_blank">' . $value . '</a> </b> ' ;
   $text = $link . $desc ;
@@ -57,10 +58,31 @@ function renderPlg($name, $plg) {
   $proVersion = " <a href='http://buy.ads-ez.com/$name' title='Buy the Pro version of $value for \$$price'>Get Pro Version</a><br />" ;
   $why = "<a href='http://buy.ads-ez.com/$name' title='Pro version of the $name plugin'><img src='https://www.paypalobjects.com/en_GB/SG/i/btn/btn_buynowCC_LG.gif' border='0' alt='PayPal — The safer, easier way to pay online.' class='alignright' /></a>
 <br />".$plg['pro'] ;
-  echo "<li>" . makeTextWithTooltip($text, $toolTip, $value, 350) .
-    makeTextWithTooltip($moreInfo, "Read more about $value at its own page.<br />".$toolTip, "More Information about $value", 300) .
-    makeTextWithTooltip($liteVersion, $toolTip, "Download $value - the Lite version", 300) .
+  echo "<li>" . makeTextWithTooltip($text, $title, $value, 350) .
+    makeTextWithTooltip($moreInfo, "Read more about $value at its own page.<br />".$title, "More Information about $value", 300) .
+    makeTextWithTooltip($liteVersion, $title, "Download $value - the Lite version", 300) .
     makeTextWithTooltipTag($name, $proVersion, $why, "Get $value Pro!", 300) .
+    "</li>\n" ;
+}
+function renderBook($name, $plg) {
+  if (!$plg['isBook']) return ;
+  $value = '<em><strong>'.$plg['value'].'</strong></em>';
+  $desc = $plg['desc'] ;
+  $title = $plg['title'] ;
+  $url = $plg['url'] ;
+  $link = '<b><a href="' . $url . '" target="_blank">' . $value . '</a> </b> ' ;
+  $text = $link . $desc ;
+  $price = $plg['price'] ;
+  $moreInfo = " <a href='$url' title='More info about $value at Unreal Blog'>More Info</a> " ;
+  $amazon = $plg['amazon'] ;
+  if (!empty($amazon)) $buyAmazon = " <a href='$amazon' title='Get $value from Amazon.com'>Get it at Amazon</a> " ;
+  $buyNow = " <a href='http://buy.ads-ez.com/$name' title='Buy and download $value for \$$price'>Buy and Download now!</a><br />" ;
+  $why = "<a href='http://buy.ads-ez.com/$name' title='$name'><img src='https://www.paypalobjects.com/en_GB/SG/i/btn/btn_buynowCC_LG.gif' border='0' alt='PayPal — The safer, easier way to pay online.' class='alignright' /></a>
+<br />".$title.$desc." $value costs only \$$price -- direct from the author." ;
+  echo "<li>" . makeTextWithTooltip($text, $title, $value, 350) .
+    makeTextWithTooltip($moreInfo, "Read all about $value at its own site.<br />", "$value", 300) .
+     makeTextWithTooltip($buyAmazon, $title, "Buy $value from Amazon", 300) .
+    makeTextWithTooltipTag($name, $buyNow, $why, "Buy $value!", 300) .
     "</li>\n" ;
 }
 
@@ -68,7 +90,7 @@ function renderPlg($name, $plg) {
 <?php
 ?>
 <span id="rate">
-<iframe src="http://wordpress.org/extend/plugins/$plgName-lite" width="1000px" height="750px">
+<iframe src="http://wordpress.org/extend/plugins/<?php echo $plgName ; ?>-lite" width="1000px" height="1000px">
 </iframe>
 </span>
 
@@ -92,6 +114,17 @@ function renderPlg($name, $plg) {
 
 <?php
   foreach ($myPlugins as $name => $plg) if ($name != $plgName) renderPlg($name, $plg) ;
+?>
+
+</ul>
+</li>
+<li>
+<?php _e('My books -- on Physics, Philosophy, making Money etc:', 'easy-adsenser') ; ?>
+
+<ul style="margin-left:0px; padding-left:30px;list-style-type:square; list-style-position:inside;" >
+
+<?php
+  foreach ($myPlugins as $name => $plg){ renderBook($name, $plg) ;}
 ?>
 
 </ul>
