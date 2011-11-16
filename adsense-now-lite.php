@@ -3,7 +3,7 @@
 Plugin Name: AdSense Now! Lite
 Plugin URI: http://www.thulasidas.com/adsense
 Description: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=adsense-now-lite.php">Settings &rarr; AdSense Now! Lite</a>.
-Version: 3.03
+Version: 3.04
 Author: Manoj Thulasidas
 Author URI: http://www.thulasidas.com
 */
@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 if (!class_exists("adsNow")) {
   class adsNow {
-    var $plugindir, $locale, $defaults, $adminOptions, $adminOptionName, $mcAd;
+    var $plugindir, $locale, $defaults, $adminOptions, $adminOptionName;
     function adsNow() { //constructor
       if (file_exists (dirname (__FILE__).'/defaults.php')){
         include (dirname (__FILE__).'/defaults.php');
@@ -187,19 +187,15 @@ if (!class_exists("adsNow")) {
         '</font>' ;
     }//End function printAdminPage()
 
-    function mc($mc, $ad, $size=false, $key='300x250') {
-      return $ad ;
-    }
-
     function info() {
       $me = basename(dirname(__FILE__)) . '/' . basename(__FILE__);
       $plugins = get_plugins() ;
-      $str =  "<!-- " . $plugins[$me]['Title'] . " V" . $plugins[$me]['Version'] . " -->\n";
+      $str =  "<!-- " . $plugins[$me]['Title'] . " V" .
+        $plugins[$me]['Version'] . " -->\n";
       return $str ;
     }
 
     var $nwMax = 3 ;
-    var $mced = false ;
 
     function cleanDB($prefix){
       global $wpdb ;
@@ -233,8 +229,10 @@ if (!class_exists("adsNow")) {
           if ($tkey !== FALSE) {
             $value = strtolower(trim($val[0])) ;
             // ensure valid values for options
-            if ($value == 'left' || $value == 'right' || $value == 'center' || $value == 'no') {
-              if ($value == 'left' || $value == 'right') $value = 'float:' . $value ;
+            if ($value == 'left' || $value == 'right'
+              || $value == 'center' || $value == 'no') {
+              if ($value == 'left' || $value == 'right')
+                $value = 'float:' . $value ;
               if ($value == 'center') $value = 'text-align:' . $value ;
               $metaOptions[$ezkeys[$tkey]] = $value ;
             }
@@ -253,8 +251,6 @@ if (!class_exists("adsNow")) {
       if ($adNwOptions['kill_cat'] && is_category()) return $content ;
       if ($adNwOptions['kill_tag'] && is_tag()) return $content ;
       if ($adNwOptions['kill_archive'] && is_archive()) return $content ;
-      $mc = $adNwOptions['mc'] ;
-      $this->mced = false ;
       global $nwCount ;
       if ($nwCount >= $this->nwMax) return $content ;
       if(strpos($content, "<!--noadsense-->") !== false) return $content;
@@ -270,10 +266,11 @@ if (!class_exists("adsNow")) {
           $nwCount++;
           $adText = $this->handleDefaultText($adNwOptions['ad_text']) ;
           $leadin =
-            stripslashes($adNwOptions['info'] . "<!-- Post[count: " . $nwCount . "] -->\n" .
-                         '<div class="adsense adsense-leadin" style="' .
-                         $show_leadin . ';margin: 12px;">' .
-                         $this->mc($mc, $adText) . '</div>') ;
+            stripslashes($adNwOptions['info'] .
+              "<!-- Post[count: " . $nwCount . "] -->\n" .
+              '<div class="adsense adsense-leadin" style="' .
+              $show_leadin . ';margin: 12px;">' .
+              $adText . '</div>') ;
         }
       }
 
@@ -299,10 +296,11 @@ if (!class_exists("adsNow")) {
           $nwCount++;
           $adText = $this->handleDefaultText($adNwOptions['ad_text']) ;
           $midtext =
-            stripslashes($adNwOptions['info'] . "<!-- Post[count: " . $nwCount . "] -->\n" .
-                         '<div class="adsense adsense-midtext" style="' .
-                         $show_midtext . ';margin: 12px;">' .
-                         $this->mc($mc, $adText) . '</div>') ;
+            stripslashes($adNwOptions['info'] .
+              "<!-- Post[count: " . $nwCount . "] -->\n" .
+              '<div class="adsense adsense-midtext" style="' .
+              $show_midtext . ';margin: 12px;">' .
+              $adText . '</div>') ;
           $content = substr_replace($content, $midtext.$repchar, $pickme, 2);
         }
       }
@@ -316,10 +314,11 @@ if (!class_exists("adsNow")) {
           $nwCount++;
           $adText = $this->handleDefaultText($adNwOptions['ad_text']) ;
           $leadout =
-            stripslashes($adNwOptions['info'] . "<!-- Post[count: " . $nwCount . "] -->\n" .
-                         '<div class="adsense adsense-leadout" style="' .
-                         $show_leadout . ';margin: 12px;">' .
-                         $this->mc($mc, $adText) . '</div>') ;
+            stripslashes($adNwOptions['info'] .
+              "<!-- Post[count: " . $nwCount . "] -->\n" .
+              '<div class="adsense adsense-leadout" style="' .
+              $show_leadout . ';margin: 12px;">' .
+              $adText . '</div>') ;
         }
       }
 

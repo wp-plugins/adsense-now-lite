@@ -4,7 +4,7 @@ Donate link: http://buy.ads-ez.com/adsense-now
 Tags: adsense, ad, ads, advertising, google
 Requires at least: 2.5
 Tested up to: 3.2
-Stable tag: 3.03
+Stable tag: 3.04
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss.
 
@@ -16,7 +16,7 @@ AdSense Now! gets you started with Google AdSense. No mess, no fuss.
 
 1. Enforces the Google policy of not more than three ad blocks per page.
 1. Simplest possible configuration interface -- nothing more than cutting and pasting AdSense code.
-1. Option to suppress ads on all pages (as opposed to posts), or on the front/home page., category/tag/archive listings.
+1. Option to suppress ads on all pages (as opposed to posts), or on the front/home page, category/tag/archive listings.
 1. Control over the positioning and display of AdSense blocks in each post or page.
 1. Internationalized with multiple language support.
 
@@ -24,16 +24,15 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 *AdSense Now! Lite* is the freely distributed version of a premium plugin. The [Pro version](http://buy.ads-ez.com/adsense-now/ "Pro version of the AdSense Now! plugin for only $3.95") gives you more control. It gives you filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned.
 
-= New in 3.03 =
+= New in this Release =
 
-Minor bug fixes.
+Code clean up -- removing unused functions, indenting the code. And minor fixes.
 
 == Upgrade Notice ==
 
-= 3.03 =
+= 3.04 =
 
-
-Minor bug fixes.
+Code clean up -- removing unused functions, indenting the code. And minor fixes.
 
 == Screenshots ==
 
@@ -79,6 +78,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.04: Code clean up -- removing unused functions, indenting the code. Updating Korean translation (the `.mo` file was missing in the earlier release). Other misc minor fixes. [Nov 16, 2011]
 * V3.03: Minor bug fixes. [Nov 15, 2011]
 * V3.02: Releasing Korean translation and updating Thai translation. Admin interface changes.[Nov 12, 2011]
 * V3.01: Trimming readme.txt. [Nov 3, 2011]

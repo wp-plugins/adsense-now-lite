@@ -84,7 +84,9 @@ $myPlugins['theme-tweaker'] =
     'blurb' =>'<em><strong>Theme Tweaker</strong></em> is a remarkable plugin that ',
     'desc' => 'lets you modify the colors in your theme with no CSS/PHP editing.',
     'title' => '<em><strong>Theme Tweaker</strong></em> displays the existing colors from your current theme, and gives you a color picker to replace them. It also lets you change them in bulk, like invert all colors, use grey scale etc.',
-    'pro' => 'Note that <em><strong>Theme Tweaker</strong></em> may not work with some themes. Please verify its suitability using the Lite version first. The Lite version of the plugin is fully functional. The Pro version lets you generate your own child themes.') ;
+    'pro' => 'Note that <em><strong>Theme Tweaker</strong></em> may not work with some themes. Please verify its suitability using the Lite version first. The Lite version of the plugin is fully functional. The Pro version lets you create and save your tweaked <code>style.css</code> files, and even generate your own child themes!',
+    'benefits' => '<li>Ability to generate and download <code>style.css</code> files with your modified colors.</li>
+<li>Ability to create a child theme so that your changes can be applied even when the underlying theme is updated.</li>') ;
 
 $myPlugins['easy-latex'] =
   array('value' => 'Easy WP LaTeX',
@@ -122,7 +124,7 @@ $myPlugins['unreal-universe'] =
     'pro' => '',
     'isBook' => true) ;
 
-function renderInvite($plg) {
+function renderInvite($plg, $plgName) {
   $plgLongName = $plg['value'] ;
   $plgPrice = $plg['price'] ;
   $benefits = $plg['benefits'] ;
@@ -151,7 +153,7 @@ function buttonwhich(message) {
   document.getElementById("nbutton").disabled = 'true';
   document.getElementById("nbutton").value = 'Thank you for using $plgLongName Lite!';
   setTimeout('hideInvite()', 2000);
-  if (message == 'Yes') window.open('http://buy.ads-ez.com/easy-adsense') ;
+  if (message == 'Yes') window.open('http://buy.ads-ez.com/$plgName') ;
 }
 </script>
 </div>
