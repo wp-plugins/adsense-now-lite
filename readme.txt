@@ -1,10 +1,10 @@
 === AdSense Now! Lite ===
 Contributors: manojtd
 Donate link: http://buy.ads-ez.com/adsense-now
-Tags: adsense, ad, ads, advertising, google
+Tags: adsense, ad, ads, advertising, google, adsense plugin
 Requires at least: 2.5
-Tested up to: 3.2
-Stable tag: 3.04
+Tested up to: 3.3
+Stable tag: 3.05
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss.
 
@@ -26,13 +26,13 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 = New in this Release =
 
-Code clean up -- removing unused functions, indenting the code. And minor fixes.
+Updating a few translations, consolidating image resources and trimming auxiliary files.
 
 == Upgrade Notice ==
 
-= 3.04 =
+= 3.05 =
 
-Code clean up -- removing unused functions, indenting the code. And minor fixes.
+Updating a few translations, consolidating image resources and trimming auxiliary files.
 
 == Screenshots ==
 
@@ -78,6 +78,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.05: Updating a few translations, consolidating image resources and trimming auxiliary files. [Mar 19, 2012]
 * V3.04: Code clean up -- removing unused functions, indenting the code. Updating Korean translation (the `.mo` file was missing in the earlier release). Other misc minor fixes. [Nov 16, 2011]
 * V3.03: Minor bug fixes. [Nov 15, 2011]
 * V3.02: Releasing Korean translation and updating Thai translation. Admin interface changes.[Nov 12, 2011]
