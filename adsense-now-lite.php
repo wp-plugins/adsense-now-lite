@@ -3,7 +3,7 @@
 Plugin Name: AdSense Now! Lite
 Plugin URI: http://www.thulasidas.com/adsense
 Description: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=adsense-now-lite.php">Settings &rarr; AdSense Now! Lite</a>.
-Version: 3.05
+Version: 3.06
 Author: Manoj Thulasidas
 Author URI: http://www.thulasidas.com
 */
@@ -68,11 +68,11 @@ if (!class_exists("adsNow")) {
       }
       $adsNowAdminOptions =
         array('info' => "<!-- AdSense Now Lite V2.03 -->\n",
-          'policy' => 'unknown',
           'ad_text' => $this->defaults['defaultText'],
           'show_leadin' => 'float:right',
           'show_midtext' => 'float:left',
           'show_leadout' => 'float:right',
+          'kill_invites' => false,
           'kill_pages' => false,
           'kill_home' => false,
           'kill_attach' => false,
@@ -120,8 +120,6 @@ if (!class_exists("adsNow")) {
       $adNwOptions = $this->getAdminOptions();
 
       if (isset($_POST['update_adsNowSettings'])) {
-        if (isset($_POST['ezAdSensePolicy']))
-          $adNwOptions['policy'] = $_POST['ezAdSensePolicy'];
         if (isset($_POST['adsNowText'])) {
           $adNwOptions['ad_text'] = $_POST['adsNowText'];
         }
@@ -134,6 +132,8 @@ if (!class_exists("adsNow")) {
         if (isset($_POST['adsNowShowLeadout'])) {
           $adNwOptions['show_leadout'] = $_POST['adsNowShowLeadout'];
         }
+        if (isset($_POST['killInvites']))
+          $adNwOptions['kill_invites'] = $_POST['killInvites'];
         $adNwOptions['kill_pages'] = $_POST['adNwKillPages'];
         $adNwOptions['kill_home'] = $_POST['adNwKillHome'];
         $adNwOptions['kill_attach'] = $_POST['adNwKillAttach'];

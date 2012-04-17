@@ -25,9 +25,12 @@ echo '<script type="text/javascript" src="'. get_option('siteurl') . '/' . PLUGI
 <div class="wrap" style="width:850px">
 
 <h2>AdSense Now! Lite Setup</h2>
+
+<form method="post" name="adsenser" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
 <?php
-    renderInvite($myPlugins[$plgName], $plgName) ;
+  if (!$adNwOptions['kill_invites']) renderInvite($myPlugins[$plgName], $plgName) ;
 ?>
+
 <table class="form-table">
 <tr><th scope="row"><h3><?php _e('Instructions', 'easy-adsenser') ; ?></h3></th></tr>
 <tr valign="top">
@@ -55,7 +58,6 @@ printf(__('A few easy steps to setup %s', 'easy-adsenser'),'<em>AdSense Now! Lit
 </tr>
 </table>
 
-<form method="post" name="adsenser" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
 <br />
 
 <table class="form-table">
@@ -207,9 +209,11 @@ no', 'easy-adsenser') ;?>
 <hr />
 
 <?php
-echo '<div style="background-color:#cff;padding:5px;border: solid 1px;margin:5px;">' ;
-@include (dirname (__FILE__).'/why-pro.php');
-echo '</div>' ;
+if (!$adNwOptions['kill_invites']) {
+  echo '<div style="background-color:#cff;padding:5px;border: solid 1px;margin:5px;">' ;
+  @include (dirname (__FILE__).'/why-pro.php');
+  echo '</div>' ;
+}
 ?>
 
 <div style="background-color:#fcf;padding:5px;border: solid 1px;margin:5px;">

@@ -4,7 +4,7 @@ Donate link: http://buy.ads-ez.com/adsense-now
 Tags: adsense, ad, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 3.3
-Stable tag: 3.05
+Stable tag: 3.06
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss.
 
@@ -26,13 +26,13 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 = New in this Release =
 
-Updating a few translations, consolidating image resources and trimming auxiliary files.
+New option to suppress invitations to upgrade the plugin.  Translation updates.
 
 == Upgrade Notice ==
 
-= 3.05 =
+= 3.06 =
 
-Updating a few translations, consolidating image resources and trimming auxiliary files.
+New option to suppress invitations to upgrade the plugin.  Translation updates.
 
 == Screenshots ==
 
@@ -78,6 +78,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.06: New option to suppress invitations to upgrade the plugin. Translation updates. [Apr 18, 2012]
 * V3.05: Updating a few translations, consolidating image resources and trimming auxiliary files. [Mar 19, 2012]
 * V3.04: Code clean up -- removing unused functions, indenting the code. Updating Korean translation (the `.mo` file was missing in the earlier release). Other misc minor fixes. [Nov 16, 2011]
 * V3.03: Minor bug fixes. [Nov 15, 2011]

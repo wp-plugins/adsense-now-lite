@@ -148,7 +148,7 @@ if (!function_exists('renderInvite')) {
   $benefits = $plg['benefits'] ;
   $yesTip = sprintf(__('Buy %s Pro for $%s. Instant download.', 'easy-adsenser'),$plgLongName, $plgPrice) ;
   $yesTitle = __('Get the Pro version now!', 'easy-adsenser') ;
-  $noTip = __('Continue using the Lite version, and hide this message for now.', 'easy-adsenser') ;
+  $noTip = __('Continue using the Lite version, and hide this message forever. After clicking this button, please remember to save your options to hide this box for good.', 'easy-adsenser') ;
   $noTitle = __('Stay Lite', 'easy-adsenser') ;
   if (empty($benefits)) return ;
 echo <<<ENDINVITE
@@ -161,7 +161,7 @@ $benefits
 And much more. New features and bug fixes will first appear in the Pro version before being ported to this freely distributed Lite edition. </p>
 <input onmouseover="Tip('$yesTip', WIDTH, 200, CLICKCLOSE, true, TITLE, '$yesTitle')" onmouseout="UnTip()" type = "button" id = "ybutton" value = "Go Pro!" onclick = "buttonwhich('Yes')">
 <input onmouseover="Tip('$noTip', WIDTH, 200, CLICKCLOSE, true, TITLE, '$noTitle')" onmouseout="UnTip()" type = "button" id = "nbutton" value = "No thanks" onclick = "buttonwhich('No')">
-
+<input type="hidden" id="killInvites" name="killInvites" value="" />
 <script type = "text/javascript">
 function hideInvite() {
   document.getElementById("tnc").style.display = 'none';
@@ -169,8 +169,9 @@ function hideInvite() {
 function buttonwhich(message) {
   document.getElementById("ybutton").style.display = 'none';
   document.getElementById("nbutton").disabled = 'true';
-  document.getElementById("nbutton").value = 'Thank you for using $plgLongName Lite!';
-  setTimeout('hideInvite()', 2000);
+  document.getElementById("killInvites").value = 'true' ;
+  document.getElementById("nbutton").value = 'Thank you for using $plgLongName Lite! Please save options to hide this box forever.';
+  setTimeout('hideInvite()', 3000);
   if (message == 'Yes') window.open('http://buy.thulasidas.com/$plgName') ;
 }
 </script>
