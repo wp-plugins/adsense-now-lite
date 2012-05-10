@@ -1,12 +1,12 @@
-=== AdSense Now! Lite ===
+=== AdSense Now! ===
 Contributors: manojtd
 Donate link: http://buy.ads-ez.com/adsense-now
 Tags: adsense, ad, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 3.3
-Stable tag: 3.06
+Stable tag: 3.07
 
-AdSense Now! gets you started with Google AdSense. No mess, no fuss.
+AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
 
 == Description ==
 
@@ -14,7 +14,7 @@ AdSense Now! gets you started with Google AdSense. No mess, no fuss.
 
 = Features =
 
-1. Enforces the Google policy of not more than three ad blocks per page.
+1. Enforces the Google policy of not more than three adsense blocks per page.
 1. Simplest possible configuration interface -- nothing more than cutting and pasting AdSense code.
 1. Option to suppress ads on all pages (as opposed to posts), or on the front/home page, category/tag/archive listings.
 1. Control over the positioning and display of AdSense blocks in each post or page.
@@ -22,7 +22,7 @@ AdSense Now! gets you started with Google AdSense. No mess, no fuss.
 
 PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
-*AdSense Now! Lite* is the freely distributed version of a premium plugin. The [Pro version](http://buy.ads-ez.com/adsense-now/ "Pro version of the AdSense Now! plugin for only $3.95") gives you more control. It gives you filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned.
+*AdSense Now!* is the freely distributed version of a premium plugin. The [Pro version](http://buy.ads-ez.com/adsense-now/ "Pro version of the AdSense Now! plugin for only $3.95") gives you more control. It gives you filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned.
 
 = New in this Release =
 
@@ -40,7 +40,7 @@ New option to suppress invitations to upgrade the plugin.  Translation updates.
 
 == Installation ==
 
-1. Upload the *AdSense Now! Lite* plugin (the whole adsense-now-lite folder) to the '/wp-content/plugins/' directory.
+1. Upload the *AdSense Now!* plugin (the whole adsense-now-lite folder) to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Go to the Setup -> AdSense Now! and enter your AdSense code and options.
 
@@ -68,9 +68,9 @@ Note that you have to generate your adsense code from Google, and paste the *ent
 
 If you just created the new Google AdSense code, it may not be active yet. Google takes about ten minutes or so before serving ads. Please try again later.
 
-= Can I control how the ad blocks are formatted in each page? =
+= Can I control how the adsense blocks are formatted in each page? =
 
-Yes! Now, in V1.1+, you more options [through **custom fields**] to control ad blocks in individual posts/pages. Add custom fields with keys like **adsense-top, adsense-middle, adsense-bottom, adsense-widget, adsense-search** and with values like **left, right, center** or **no** to have control how the ad blocks show up in each post or page. The value "**no**" suppresses all AdSense ad blocks in the post or page.
+Yes! Now, in V1.1+, you more options [through **custom fields**] to control adsense blocks in individual posts/pages. Add custom fields with keys like **adsense-top, adsense-middle, adsense-bottom, adsense-widget, adsense-search** and with values like **left, right, center** or **no** to have control how the adsense blocks show up in each post or page. The value "**no**" suppresses all AdSense ad blocks in the post or page.
 
 = How do I report a bug or ask a question? =
 
@@ -78,6 +78,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.07: Renaming the plugin -- dropping the word Lite. [May 11, 2012]
 * V3.06: New option to suppress invitations to upgrade the plugin. Translation updates. [Apr 18, 2012]
 * V3.05: Updating a few translations, consolidating image resources and trimming auxiliary files. [Mar 19, 2012]
 * V3.04: Code clean up -- removing unused functions, indenting the code. Updating Korean translation (the `.mo` file was missing in the earlier release). Other misc minor fixes. [Nov 16, 2011]
@@ -115,7 +116,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 * V1.52: German translation. [June 20,2009]
 * V.151: Compatibility with WP2.8+. [June 13, 2009]
 * V1.50: Interface streamlining and improvements, minor bug fixes and configurable ad space sharing to support the plugin development. [June 12, 2009]
-* V1.37: Option to suppress ad blocks in front/home/category/tag/archive pages. [June 6, 2009]
+* V1.37: Option to suppress adsense blocks in front/home/category/tag/archive pages. [June 6, 2009]
 * V1.35: Belarusian translation. [May 4, 2009]
 * V1.34: Turkish translation. [May 4, 2009]
 * V1.33: Added some HTML comments in the page with version number and ad block sequence number for easy trouble shooting. [May 1, 2009]

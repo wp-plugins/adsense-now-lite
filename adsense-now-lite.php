@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: AdSense Now! Lite
+Plugin Name: AdSense Now!
 Plugin URI: http://www.thulasidas.com/adsense
-Description: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=adsense-now-lite.php">Settings &rarr; AdSense Now! Lite</a>.
-Version: 3.06
+Description: <em>Lite Version</em>: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=adsense-now-lite.php">Settings &rarr; AdSense Now!</a>.
+Version: 3.07
 Author: Manoj Thulasidas
 Author URI: http://www.thulasidas.com
 */
@@ -67,7 +67,7 @@ if (!class_exists("adsNow")) {
         }
       }
       $adsNowAdminOptions =
-        array('info' => "<!-- AdSense Now Lite V2.03 -->\n",
+        array('info' => "<!-- AdSense Now V2.03 -->\n",
           'ad_text' => $this->defaults['defaultText'],
           'show_leadin' => 'float:right',
           'show_midtext' => 'float:left',
@@ -107,7 +107,7 @@ if (!class_exists("adsNow")) {
         $w = substr($key, 0, $x);
         $h = substr($key, $x+1);
         $p = (int)(min($w,$h)/6) ;
-        $ret = '<div style="width:'.$w.'px;height:'.$h.'px;border:1px solid red;"><div style="padding:'.$p.'px;text-align:center;font-family:arial;font-size:8pt;"><p>Your ads will be inserted here by</p><p><b>AdSense Now! Lite</b>.</p><p>Please go to the plugin admin page to paste your ad code.</p></div></div>' ;
+        $ret = '<div style="width:'.$w.'px;height:'.$h.'px;border:1px solid red;"><div style="padding:'.$p.'px;text-align:center;font-family:arial;font-size:8pt;"><p>Your ads will be inserted here by</p><p><b>AdSense Now!</b>.</p><p>Please go to the plugin admin page to paste your ad code.</p></div></div>' ;
       }
       return $ret ;
     }
@@ -346,7 +346,7 @@ if (class_exists("adsNow")) {
       function adsNow_ap() {
         global $nw_ad ;
         if (function_exists('add_options_page')) {
-          $mName = 'AdSense Now! Lite' ;
+          $mName = 'AdSense Now!' ;
           add_options_page($mName, $mName, 9, basename(__FILE__),
             array(&$nw_ad, 'printAdminPage'));
         }
