@@ -1,10 +1,10 @@
 === AdSense Now! ===
 Contributors: manojtd
-Donate link: http://buy.ads-ez.com/adsense-now
+Donate link: http://affiliates.thulasidas.com
 Tags: adsense, ad, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 3.3
-Stable tag: 3.08
+Stable tag: 3.09
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
 
@@ -26,13 +26,13 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 = New in this Release =
 
-Documentation and admin page changes. 
+Updating translations. Adding some text on the admin page about rating.
 
 == Upgrade Notice ==
 
-= 3.08 =
+= 3.09 =
 
-Documentation and admin page changes.
+Updating translations. Adding some text on the admin page about rating.
 
 == Screenshots ==
 
@@ -78,6 +78,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.09: Updating translations. Adding some text on the admin page about rating. [June 17, 2012]
 * V3.08: Documentation and admin page changes. [May 24,2012]
 * V3.07: Renaming the plugin -- dropping the word Lite. [May 11, 2012]
 * V3.06: New option to suppress invitations to upgrade the plugin. Translation updates. [Apr 18, 2012]

@@ -3,7 +3,7 @@
 Plugin Name: AdSense Now!
 Plugin URI: http://www.thulasidas.com/adsense
 Description: <em>Lite Version</em>: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=adsense-now-lite.php">Settings &rarr; AdSense Now!</a>.
-Version: 3.08
+Version: 3.09
 Author: Manoj Thulasidas
 Author URI: http://www.thulasidas.com
 */
@@ -73,6 +73,7 @@ if (!class_exists("adsNow")) {
           'show_midtext' => 'float:left',
           'show_leadout' => 'float:right',
           'kill_invites' => false,
+          'kill_rating' => false,
           'kill_pages' => false,
           'kill_home' => false,
           'kill_attach' => false,
@@ -134,6 +135,8 @@ if (!class_exists("adsNow")) {
         }
         if (isset($_POST['killInvites']))
           $adNwOptions['kill_invites'] = $_POST['killInvites'];
+        if (isset($_POST['killRating']))
+          $adNwOptions['kill_rating'] = $_POST['killRating'];
         $adNwOptions['kill_pages'] = $_POST['adNwKillPages'];
         $adNwOptions['kill_home'] = $_POST['adNwKillHome'];
         $adNwOptions['kill_attach'] = $_POST['adNwKillAttach'];

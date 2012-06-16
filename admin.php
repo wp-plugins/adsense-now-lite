@@ -24,10 +24,11 @@ $plgName = 'adsense-now' ;
 echo '<script type="text/javascript" src="'. get_option('siteurl') . '/' . PLUGINDIR . '/' .  basename(dirname(__FILE__)) . '/wz_tooltip.js"></script>' ?>
 <div class="wrap" style="width:850px">
 
-<h2>AdSense Now! Lite Setup</h2>
+<h2>AdSense Now! Setup</h2>
 
 <form method="post" name="adsenser" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
 <?php
+  if (!$adNwOptions['kill_rating']) renderRating($myPlugins[$plgName], $plgName) ;
   if (!$adNwOptions['kill_invites']) renderInvite($myPlugins[$plgName], $plgName) ;
 ?>
 
@@ -45,10 +46,6 @@ printf(__('A few easy steps to setup %s', 'easy-adsenser'),'<em>AdSense Now! Lit
 <li>
 <a href="#" title="<?php _e('Click for help', 'easy-adsenser') ; ?>" onclick="TagToTip('help1',WIDTH, 270, TITLE, '<?php _e('How to Control AdSense on Each Post', 'easy-adsenser') ; ?>', STICKY, 1, CLOSEBTN, true, CLICKCLOSE, true, FIX, [this, 15, 5])">
 <?php _e('Need to control ad blocks on each post?', 'easy-adsenser') ;?></a><br />
-</li>
-<li>
-<a href="#" title="<?php _e('Click for help', 'easy-adsenser') ; ?>" onclick="TagToTip('rate', TITLE, 'WordPress: AdSense Now!', STICKY, 1, CLOSEBTN, true, CLICKCLOSE, true, FIX, [25, 25])">
-<?php _e('Check out the FAQ and rate this plugin.', 'easy-adsenser') ;?></a><br />
 </li>
 </ul>
 </td>
