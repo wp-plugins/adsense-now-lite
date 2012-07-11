@@ -3,8 +3,8 @@ Contributors: manojtd
 Donate link: http://affiliates.thulasidas.com
 Tags: adsense, ad, ads, advertising, google, adsense plugin
 Requires at least: 2.5
-Tested up to: 3.3
-Stable tag: 3.09
+Tested up to: 3.4
+Stable tag: 3.10
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
 
@@ -14,11 +14,11 @@ AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Go
 
 = Features =
 
-1. Enforces the Google policy of not more than three adsense blocks per page.
-1. Simplest possible configuration interface -- nothing more than cutting and pasting AdSense code.
-1. Option to suppress ads on all pages (as opposed to posts), or on the front/home page, category/tag/archive listings.
-1. Control over the positioning and display of AdSense blocks in each post or page.
-1. Internationalized with multiple language support.
+1. AdSense Now! enforces the Google policy of not more than three adsense blocks per page.
+1. AdSense Now! sports the simplest possible configuration interface -- nothing more than cutting and pasting AdSense code.
+1. AdSense Now! gives you an option to suppress ads on all pages (as opposed to posts), or on the front/home page, category/tag/archive listings.
+1. AdSense Now! lets you control the positioning and display of AdSense blocks in each post or page.
+1. AdSense Now! is internationalized with multiple languages supported.
 
 PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
@@ -26,13 +26,13 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 = New in this Release =
 
-Updating translations. Adding some text on the admin page about rating.
+Testing compatibility with WP 3.4.
 
 == Upgrade Notice ==
 
-= 3.09 =
+= 3.10 =
 
-Updating translations. Adding some text on the admin page about rating.
+Testing compatibility with WP 3.4.
 
 == Screenshots ==
 
@@ -78,6 +78,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.10: Testing compatibility with WP 3.4. [July 11, 2012]
 * V3.09: Updating translations. Adding some text on the admin page about rating. [June 17, 2012]
 * V3.08: Documentation and admin page changes. [May 24,2012]
 * V3.07: Renaming the plugin -- dropping the word Lite. [May 11, 2012]
