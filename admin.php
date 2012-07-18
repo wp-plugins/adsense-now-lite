@@ -19,7 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 @include(dirname (__FILE__).'/myPlugins.php');
-$plgName = 'adsense-now' ;
 
 echo '<script type="text/javascript" src="'. get_option('siteurl') . '/' . PLUGINDIR . '/' .  basename(dirname(__FILE__)) . '/wz_tooltip.js"></script>' ?>
 <div class="wrap" style="width:850px">
@@ -28,7 +27,9 @@ echo '<script type="text/javascript" src="'. get_option('siteurl') . '/' . PLUGI
 
 <form method="post" name="adsenser" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
 <?php
-  if (!$adNwOptions['kill_rating']) renderRating($myPlugins[$plgName], $plgName) ;
+  $plgDir = dirname(__FILE__) ;
+  $plgName = 'adsense-now' ;
+  if (!$adNwOptions['kill_rating']) renderRating($myPlugins[$plgName], $plgDir) ;
   if (!$adNwOptions['kill_invites']) renderInvite($myPlugins[$plgName], $plgName) ;
 ?>
 
