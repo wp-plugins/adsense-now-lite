@@ -3,7 +3,7 @@
 Plugin Name: AdSense Now!
 Plugin URI: http://www.thulasidas.com/adsense
 Description: <em>Lite Version</em>: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=adsense-now-lite.php">Settings &rarr; AdSense Now!</a>.
-Version: 3.12
+Version: 3.13
 Author: Manoj Thulasidas
 Author URI: http://www.thulasidas.com
 */
@@ -45,7 +45,7 @@ if (!class_exists("adsNow")) {
       if (!$reset && count($this->adminOptions) > 0) {
         return $this->adminOptions ;
       }
-      $mThemeName = get_settings('stylesheet') ;
+      $mThemeName = get_option('stylesheet') ;
       $mOptions = "adsNow" . $mThemeName ;
       $this->plugindir = get_option('siteurl') . '/' . PLUGINDIR .
         '/' . basename(dirname(__FILE__)) ;
@@ -116,7 +116,7 @@ if (!class_exists("adsNow")) {
     //Prints out the admin page
     function printAdminPage() {
       if (empty($this->defaults)) return ;
-      $mThemeName = get_settings('stylesheet') ;
+      $mThemeName = get_option('stylesheet') ;
       $mOptions = "adsNow" . $mThemeName ;
       $adNwOptions = $this->getAdminOptions();
 
@@ -137,13 +137,13 @@ if (!class_exists("adsNow")) {
           $adNwOptions['kill_invites'] = $_POST['killInvites'];
         if (isset($_POST['killRating']))
           $adNwOptions['kill_rating'] = $_POST['killRating'];
-        $adNwOptions['kill_pages'] = $_POST['adNwKillPages'];
-        $adNwOptions['kill_home'] = $_POST['adNwKillHome'];
-        $adNwOptions['kill_attach'] = $_POST['adNwKillAttach'];
-        $adNwOptions['kill_front'] = $_POST['adNwKillFront'];
-        $adNwOptions['kill_cat'] = $_POST['adNwKillCat'];
-        $adNwOptions['kill_tag'] = $_POST['adNwKillTag'];
-        $adNwOptions['kill_archive'] = $_POST['adNwKillArchive'];
+        $adNwOptions['kill_pages'] = isset($_POST['adNwKillPages']);
+        $adNwOptions['kill_home'] = isset($_POST['adNwKillHome']);
+        $adNwOptions['kill_attach'] = isset($_POST['adNwKillAttach']);
+        $adNwOptions['kill_front'] = isset($_POST['adNwKillFront']);
+        $adNwOptions['kill_cat'] = isset($_POST['adNwKillCat']);
+        $adNwOptions['kill_tag'] = isset($_POST['adNwKillTag']);
+        $adNwOptions['kill_archive'] = isset($_POST['adNwKillArchive']);
 
         $adNwOptions['info'] = $this->info() ;
 
@@ -217,30 +217,28 @@ if (!class_exists("adsNow")) {
     function contentMeta() {
       $adNwOptions = $this->getAdminOptions();
       global $post;
-      $meta = get_post_custom($post->ID);
-      $adkeys = array('adsense', 'adsense-top', 'adsense-middle', 'adsense-bottom') ;
-      $ezkeys = array('adsense', 'show_leadin', 'show_midtext', 'show_leadout') ;
+      $lookup = array('adsense' => 'adsense',
+                'adsense-top' =>'show_leadin',
+                'adsense-middle' => 'show_midtext',
+                'adsense-bottom' => 'show_leadout') ;
       $metaOptions = array() ;
-      // initialize to adNwOptions
-      foreach ($ezkeys as $key => $optKey) {
-        $metaOptions[$ezkeys[$key]] = $adNwOptions[$optKey] ;
-      }
-      // overwrite with custom fields
-      if (!empty($meta)) {
-        foreach ($meta as $key => $val) {
-          $tkey = array_search(strtolower(trim($key)), $adkeys) ;
-          if ($tkey !== FALSE) {
-            $value = strtolower(trim($val[0])) ;
-            // ensure valid values for options
-            if ($value == 'left' || $value == 'right'
-              || $value == 'center' || $value == 'no') {
-              if ($value == 'left' || $value == 'right')
-                $value = 'float:' . $value ;
-              if ($value == 'center') $value = 'text-align:' . $value ;
-              $metaOptions[$ezkeys[$tkey]] = $value ;
-            }
-          }
-        }
+      foreach ($lookup as $metaKey => $optKey) {
+        if (!empty($adNwOptions[$optKey])) $metaOptions[$optKey] = $adNwOptions[$optKey] ;
+        else $metaOptions[$optKey] = '' ;
+        $customStyle = get_post_custom_values($metaKey, $post->ID, true);
+        if (is_array($customStyle))
+          $metaStyle = strtolower($customStyle[0]) ;
+        else
+          $metaStyle = strtolower($customStyle) ;
+        $style = '' ;
+        if ($metaStyle == 'left')
+          $style = 'float:left;display:block;' ;
+        else if ($metaStyle == 'right')
+          $style = 'float:right;display:block;' ;
+        else if ($metaStyle == 'center')
+          $style = 'text-align:center;display:block;' ;
+        else $style = $metaStyle ;
+        if (!empty($style)) $metaOptions[$optKey] = $style ;
       }
       return $metaOptions ;
     }
@@ -350,7 +348,7 @@ if (class_exists("adsNow")) {
         global $nw_ad ;
         if (function_exists('add_options_page')) {
           $mName = 'AdSense Now!' ;
-          add_options_page($mName, $mName, 9, basename(__FILE__),
+          add_options_page($mName, $mName, 'activate_plugins', basename(__FILE__),
             array(&$nw_ad, 'printAdminPage'));
         }
       }

@@ -4,7 +4,7 @@ Donate link: http://affiliates.thulasidas.com
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 3.4
-Stable tag: 3.12
+Stable tag: 3.13
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
 
@@ -26,13 +26,13 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 = New in this Release =
 
-Adding nl_NL translation.
+Taking care of some debug notices from WordPress debug mode. Coding improvements: refactoring, minor fixes.
 
 == Upgrade Notice ==
 
-= 3.12 =
+= 3.13 =
 
-Adding nl_NL translation.
+Taking care of some debug notices from WordPress debug mode. Coding improvements: refactoring, minor fixes.
 
 == Screenshots ==
 
@@ -49,6 +49,18 @@ Adding nl_NL translation.
 = Why do I get a "Plugin does not have valid header" error? =
 
 This seems to be a problem with some WordPress installations. I have never been able to reproduce this error on any of my installations. I have found [this on the web](http://webdesign.anmari.com/2312/activation-error-plugin-does-not-have-valid-header-still-activates/ "This may give you some ideas") though.
+
+= What are the different versions of the plugin? =
+
+AdSense Now is the freely distributed version of a premium plugin. The [Pro version](https://buy.thulasidas.com/adsense-now "Pro version of the AdSense Now plugin") gives you more benefits -- lets you activate a filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned. The Pro version costs $3.95, and is appropriate if you expect to make more than $100 of ad revenue from your site.
+
+Note that support is *not* included. Each [support question](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HYZ5AWPYSC8VA "Ask a support question via PayPal") (for both the Lite and Pro versions) will be charged at $0.95. The same charges will apply for follow-up questions as well. In other words, support pricing is on a per-question basis, not a per-issue basis.
+
+= I still don't get it. Porn and site block - that you already have during Asdense ad setup? =
+
+What you have in AdSense is an ability to block ads from certain sites. For instance, if you don't like ads *from* my site "thulasidas.com", you can block them. What the pro version gives you is the ability to block ads *to* certain clients. That is, if you don't want visitors from certain IP addresses see your ads (because they may click on too many of them, getting your AdSense account banned, for instance), you can with my plugin.
+
+Porn block also is similar -- Google lets you choose non-porn ads (I think). What my plugin does is to look at the content of your page, and block ads if it looks like a porn page. (This can happen if a spammer posts a porn kind of comment on your blog, which again may get your AdSense account banned.)
 
 = How can I control the appearance of the adsense blocks using CSS? =
 
@@ -78,6 +90,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.13: Taking care of some debug notices from WordPress debug mode. Coding improvements: refactoring, minor fixes. [Aug 30, 2012]
 * V3.12: Adding nl_NL translation. [Aug 12, 2012]
 * V3.11: Minor changes to the admin page. [July 18, 2012]
 * V3.10: Testing compatibility with WP 3.4. [July 11, 2012]
