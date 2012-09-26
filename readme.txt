@@ -1,10 +1,10 @@
 === AdSense Now! ===
 Contributors: manojtd
-Donate link: http://affiliates.thulasidas.com
+Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 3.4
-Stable tag: 3.13
+Stable tag: 3.20
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
 
@@ -26,13 +26,13 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 = New in this Release =
 
-Taking care of some debug notices from WordPress debug mode. Coding improvements: refactoring, minor fixes.
+Admin interface modifications. Updating some translations.
 
 == Upgrade Notice ==
 
-= 3.13 =
+= 3.20 =
 
-Taking care of some debug notices from WordPress debug mode. Coding improvements: refactoring, minor fixes.
+Admin interface modifications. Updating some translations.
 
 == Screenshots ==
 
@@ -54,7 +54,9 @@ This seems to be a problem with some WordPress installations. I have never been 
 
 AdSense Now is the freely distributed version of a premium plugin. The [Pro version](https://buy.thulasidas.com/adsense-now "Pro version of the AdSense Now plugin") gives you more benefits -- lets you activate a filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned. The Pro version costs $3.95, and is appropriate if you expect to make more than $100 of ad revenue from your site.
 
-Note that support is *not* included. Each [support question](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HYZ5AWPYSC8VA "Ask a support question via PayPal") (for both the Lite and Pro versions) will be charged at $0.95. The same charges will apply for follow-up questions as well. In other words, support pricing is on a per-question basis, not a per-issue basis.
+= How can I contact the plugin author if I need help? =
+
+This plugin uses a paid support model in order to manage the support load. Each [support ticket](http://support.thulasidas.com "Ask a support question") will be charged at $0.95 for the Lite version (and for the Pro version after a short free support period). The support ticket is valid for 48 hours, and further follow-up questions will call for a new support ticket.
 
 = I still don't get it. Porn and site block - that you already have during Asdense ad setup? =
 
@@ -90,6 +92,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.20: Admin interface modifications. Updating some translations. [Sep 27, 2012]
 * V3.13: Taking care of some debug notices from WordPress debug mode. Coding improvements: refactoring, minor fixes. [Aug 30, 2012]
 * V3.12: Adding nl_NL translation. [Aug 12, 2012]
 * V3.11: Minor changes to the admin page. [July 18, 2012]
