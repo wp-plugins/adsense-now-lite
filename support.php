@@ -31,8 +31,9 @@ function renderSupport($name, $plg) {
   _e('Ask a support question (in English or French only) via ezSupport @ $0.95', 'easy-adsenser') ;
   echo "'>" ;
   _e("[Request Paid Support]", 'easy-adsenser') ;
-  echo "</a>&nbsp;" ;
-  _e('The paid support is implemented using our ezSupport Ticket System.', 'easy-adsenser') ;
+  echo "</a>&nbsp;<small><em>[" ;
+  _e('Implemented using our ezSupport Ticket System.', 'easy-adsenser') ;
+  echo "]</em></small>" ;
   $info = ezPluginInfo() ;
   $_SESSION['ezSupport'] = $info[0]['Info'] ;
 }

@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 3.4
-Stable tag: 3.20
+Stable tag: 3.21
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
 
@@ -26,13 +26,13 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 = New in this Release =
 
-Admin interface modifications. Updating some translations.
+Updating a few translations.
 
 == Upgrade Notice ==
 
-= 3.20 =
+= 3.21 =
 
-Admin interface modifications. Updating some translations.
+Updating a few translations.
 
 == Screenshots ==
 
@@ -92,6 +92,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.21: Updating a few translations. [Dec 5, 2012]
 * V3.20: Admin interface modifications. Updating some translations. [Sep 27, 2012]
 * V3.13: Taking care of some debug notices from WordPress debug mode. Coding improvements: refactoring, minor fixes. [Aug 30, 2012]
 * V3.12: Adding nl_NL translation. [Aug 12, 2012]
