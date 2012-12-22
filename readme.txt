@@ -3,8 +3,8 @@ Contributors: manojtd
 Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
-Tested up to: 3.4
-Stable tag: 3.22
+Tested up to: 3.5
+Stable tag: 3.23
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
 
@@ -26,13 +26,13 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 = New in this Release =
 
-Fixing the incompatibility with Jetpack.
+Documentation changes, testing with WP3.5, translation updates.
 
 == Upgrade Notice ==
 
-= 3.21 =
+= 3.23 =
 
-Fixing the incompatibility with Jetpack.
+Documentation changes, testing with WP3.5, translation updates.
 
 == Screenshots ==
 
@@ -84,7 +84,7 @@ If you just created the new Google AdSense code, it may not be active yet. Googl
 
 = Can I control how the adsense blocks are formatted in each page? =
 
-Yes! Now, in V1.1+, you more options [through **custom fields**] to control adsense blocks in individual posts/pages. Add custom fields with keys like **adsense-top, adsense-middle, adsense-bottom, adsense-widget, adsense-search** and with values like **left, right, center** or **no** to have control how the adsense blocks show up in each post or page. The value "**no**" suppresses all AdSense ad blocks in the post or page.
+Yes! Now, in V1.1+, you have more options (using [Custom Fields](http://codex.wordpress.org/Custom_Fields "Scroll down to the section titled Usage")) to control adsense blocks in individual posts/pages. Add custom fields with keys like `adsense-top`, `adsense-middle`, `adsense-bottom`, `adsense-widget`, `adsense-search` and with values like `left`, `right`, `center` or `no` to have control how the Google adsense blocks show up in each post or page. A Custom Field `adsense` with  value `no` suppresses all AdSense ad blocks in the post or page.
 
 = How do I report a bug or ask a question? =
 
@@ -92,6 +92,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.23: Documentation changes, testing with WP3.5, translation updates. [Dec 22, 2012]
 * V3.22: Fixing the incompatibility with Jetpack. [Dec 17, 2012]
 * V3.21: Updating a few translations. [Dec 5, 2012]
 * V3.20: Admin interface modifications. Updating some translations. [Sep 27, 2012]
