@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 3.5
-Stable tag: 3.23
+Stable tag: 3.24
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
 
@@ -26,13 +26,13 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 = New in this Release =
 
-Documentation changes, testing with WP3.5, translation updates.
+Bug fixes (Fatal error: Call-time pass-by-reference has been removed).
 
 == Upgrade Notice ==
 
-= 3.23 =
+= 3.24 =
 
-Documentation changes, testing with WP3.5, translation updates.
+Bug fixes (Fatal error: Call-time pass-by-reference has been removed).
 
 == Screenshots ==
 
@@ -92,6 +92,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.24: Bug fixes (Fatal error: Call-time pass-by-reference has been removed). [Jan 27, 2013]
 * V3.23: Documentation changes, testing with WP3.5, translation updates. [Dec 22, 2012]
 * V3.22: Fixing the incompatibility with Jetpack. [Dec 17, 2012]
 * V3.21: Updating a few translations. [Dec 5, 2012]
