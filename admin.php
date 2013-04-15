@@ -34,9 +34,9 @@ echo '<script type="text/javascript" src="'. get_option('siteurl') . '/' . PLUGI
 ?>
 
 <table class="form-table">
-<tr><th scope="row"><h3><?php _e('Instructions', 'easy-adsenser') ; ?></h3></th></tr>
-<tr valign="top">
-<td width="37%">
+<tr><th scope="row" colspan=3><?php _e('Instructions', 'easy-adsenser') ; ?></th></tr>
+<tr>
+<td style="width:37%;">
 <ul style="padding-left:10px;list-style-type:circle; list-style-position:inside;" >
 <li>
 <a href="#" title="<?php _e('Click for help', 'easy-adsenser') ; ?>" onclick="TagToTip('help0',WIDTH, 270, TITLE, '<?php _e('How to Set it up', 'easy-adsenser') ; ?>', STICKY, 1, CLOSEBTN, true, CLICKCLOSE, true, FIX, [this, 15, 5])">
@@ -59,12 +59,12 @@ printf(__('A few easy steps to setup %s', 'easy-adsenser'),'<em>AdSense Now! Lit
 <br />
 
 <table class="form-table">
-<tr><th scope="row"><h3><?php printf(__('Options (for the %s theme)', 'easy-adsenser'), $mThemeName); ?> </h3></th></tr>
+<tr><th scope="row"><?php printf(__('Options (for the %s theme)', 'easy-adsenser'), $mThemeName); ?></th></tr>
 </table>
 
-<table class="form-table" width="100%">
-<tr valign="top">
-<td width="450">
+<table class="form-table" style="width:100%">
+<tr>
+<td style="width:450px">
 <b><?php _e('Ad Blocks in Your Posts', 'easy-adsenser') ; ?></b><br />
 <?php _e('[Appears in your posts and pages]', 'easy-adsenser') ; ?><br />
 <textarea cols="50" rows="25" name="adsNowText" style="width: 96%; height: 250px;"><?php echo(stripslashes(htmlspecialchars($adNwOptions['ad_text']))) ?></textarea>
@@ -72,15 +72,13 @@ printf(__('A few easy steps to setup %s', 'easy-adsenser'),'<em>AdSense Now! Lit
 <br style="line-height: 25px;" />
 
 </td>
-<td width="400px">
-<center>
+<td style="width:400px">
 <b><?php _e('Ad Alignment', 'easy-adsenser') ; ?></b>&nbsp;
 <b><?php _e('(Where to show?)', 'easy-adsenser') ; ?></b>
-</center>
-<table bgcolor="white" width="450">
-<tr align="center" valign="middle">
+<table style="background-color=#fff;width:450px;vertical-align:middle;text-align:center;">
+<tr>
 <td>&nbsp;</td><td><?php _e('Align Left', 'easy-adsenser') ; ?> </td><td><?php _e('Center', 'easy-adsenser') ; ?> </td><td><?php _e('Align Right', 'easy-adsenser') ; ?> </td><td><?php _e('Suppress', 'easy-adsenser') ; ?></td></tr>
-<tr align="center" valign="middle">
+<tr>
 <td><?php _e('Top', 'easy-adsenser') ; ?></td>
 <td>
 <input type="radio" id="adsNowShowLeadin_left" name="adsNowShowLeadin" value="float:left" <?php if ($adNwOptions['show_leadin'] == "float:left") { echo('checked="checked"'); }?> />
@@ -91,7 +89,7 @@ printf(__('A few easy steps to setup %s', 'easy-adsenser'),'<em>AdSense Now! Lit
 </td><td>
 <input type="radio" id="adsNowShowLeadin_no" name="adsNowShowLeadin" value="no" <?php if ($adNwOptions['show_leadin'] == "no") { echo('checked="checked"'); }?> />
 </td></tr>
-<tr align="center" valign="middle">
+<tr>
 <td><?php _e('Middle', 'easy-adsenser') ; ?></td>
 <td>
 <input type="radio" id="adsNowShowMidtext_left" name="adsNowShowMidtext" value="float:left" <?php if ($adNwOptions['show_midtext'] == "float:left") { echo('checked="checked"'); }?> />
@@ -102,7 +100,7 @@ printf(__('A few easy steps to setup %s', 'easy-adsenser'),'<em>AdSense Now! Lit
 </td><td>
 <input type="radio" id="adsNowShowMidtext_no" name="adsNowShowMidtext" value="no" <?php if ($adNwOptions['show_midtext'] == "no") { echo('checked="checked"'); }?> />
 </td></tr>
-<tr align="center" valign="middle">
+<tr>
 <td><?php _e('Bottom', 'easy-adsenser') ; ?></td>
 <td>
 <input type="radio" id="adsNowShowLeadout_left" name="adsNowShowLeadout" value="float:left" <?php if ($adNwOptions['show_leadout'] == "float:left") { echo('checked="checked"'); }?> />
@@ -114,7 +112,7 @@ printf(__('A few easy steps to setup %s', 'easy-adsenser'),'<em>AdSense Now! Lit
 <input type="radio" id="adsNowShowLeadout_no" name="adsNowShowLeadout" value="no" <?php if ($adNwOptions['show_leadout'] == "no") { echo('checked="checked"'); }?> />
 </td>
 </tr>
-<tr><td colspan="5">
+<tr><td colspan="5" style="text-align:left;">
 <b><?php _e('Suppress AdSense Ad Blocks on:', 'easy-adsenser') ; ?></b>&nbsp;&nbsp;
 <input type="checkbox" id="adNwKillPages" name="adNwKillPages" value="true" <?php if ($adNwOptions['kill_pages']) { echo('checked="checked"'); }?> /> <a href="http://codex.wordpress.org/Pages" target="_blank" title="<?php _e('Click to see the difference between posts and pages', 'easy-adsenser') ; ?>"><?php _e('Pages (Ads only on Posts)', 'easy-adsenser') ; ?></a><br />
 <label for="adNwKillAttach" title="<?php _e('Pages that show attachments', 'easy-adsenser') ; ?>">
@@ -134,7 +132,7 @@ printf(__('A few easy steps to setup %s', 'easy-adsenser'),'<em>AdSense Now! Lit
 <br />
 <div style="background-color:#cff;padding:5px;border: solid 1px;margin-top:10px;">
 <?php
-   echo '<span onmouseover="TagToTip(\'pro\', WIDTH, 350, TITLE, \'Buy the Pro Version\',STICKY, 1, CLOSEBTN, true, CLICKCLOSE, true, FIX, [this, 5, 5])"><b><font size="2">Buy the <a href="http://buy.ads-ez.com/adsense-now" target="_blank">Pro Version</a></b>&nbsp; More features, more power!<br /></font></span>' ;
+   echo '<span onmouseover="TagToTip(\'pro\', WIDTH, 350, TITLE, \'Buy the Pro Version\',STICKY, 1, CLOSEBTN, true, CLICKCLOSE, true, FIX, [this, 5, 5])"><b>Buy the <a href="http://buy.ads-ez.com/adsense-now" target="_blank">Pro Version</a></b>&nbsp; More features, more power!<br /></span>' ;
 ?>
 </div>
 </td></tr>
@@ -196,13 +194,13 @@ no', 'easy-adsenser') ;?>
 </span>
 
 <span id="help3">
-<font color="red"><?php _e('This <b>Reset Options</b> button discards all your changes and loads the default options. This is your only warning!', 'easy-adsenser') ; ?></font><br />
+<span style="font-color:#f00;"><?php _e('This <b>Reset Options</b> button discards all your changes and loads the default options. This is your only warning!', 'easy-adsenser') ; ?></span><br />
 <b><?php _e('Discard all your changes and load defaults. (Are you quite sure?)', 'easy-adsenser') ?></b></span>
-<span id="help4">
-<font color="red"><?php _e('The <b>Database Cleanup</b> button discards all your AdSense settings you have saved so far for <b>all</b> the themes, including the current one. Use it only if you know that you won\'t be using these themes. Please be careful with all database operations -- keep a backup.', 'easy-adsenser') ; ?></font><br />
+<span id="help4" style="font-color:#f00;">
+<?php _e('The <b>Database Cleanup</b> button discards all your AdSense settings you have saved so far for <b>all</b> the themes, including the current one. Use it only if you know that you won\'t be using these themes. Please be careful with all database operations -- keep a backup.', 'easy-adsenser') ; ?><br />
 <b><?php _e('Discard all your changes and load defaults. (Are you quite sure?)', 'easy-adsenser') ?></b></span>
-<span id="help5">
-<font color="red"><?php printf(__('The <b>Uninstall</b> button really kills %s after cleaning up all the options it wrote in your database. This is your only warning! Please be careful with all database operations -- keep a backup.', 'easy-adsenser'), '<em>AdSense Now! Lite</em>') ; ?></font><br />
+<span id="help5" style="font-color:#f00;">
+<?php printf(__('The <b>Uninstall</b> button really kills %s after cleaning up all the options it wrote in your database. This is your only warning! Please be careful with all database operations -- keep a backup.', 'easy-adsenser'), '<em>AdSense Now! Lite</em>') ; ?><br />
 <b><?php _e('Kill this plugin. (Are you quite sure?)', 'easy-adsenser') ?></b></span>
 <hr />
 
@@ -221,7 +219,7 @@ if (!$adNwOptions['kill_invites']) {
 <?php include (dirname (__FILE__).'/tail-text.php'); ?>
 
 <table class="form-table" >
-<tr><th scope="row"><h3><?php _e('Credits', 'easy-adsenser'); ?></h3></th></tr>
+<tr><th scope="row"><?php _e('Credits', 'easy-adsenser'); ?></th></tr>
 <tr><td>
 <ul style="padding-left:10px;list-style-type:circle; list-style-position:inside;" >
 <li>
