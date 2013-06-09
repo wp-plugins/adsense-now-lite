@@ -34,7 +34,7 @@ echo '<script type="text/javascript" src="'. get_option('siteurl') . '/' . PLUGI
 ?>
 
 <table class="form-table">
-<tr><th scope="row" colspan=3><?php _e('Instructions', 'easy-adsenser') ; ?></th></tr>
+<tr><th scope="row" colspan=3><b><?php _e('Instructions', 'easy-adsenser') ; ?></b></th></tr>
 <tr>
 <td style="width:37%;">
 <ul style="padding-left:10px;list-style-type:circle; list-style-position:inside;" >
@@ -59,7 +59,7 @@ printf(__('A few easy steps to setup %s', 'easy-adsenser'),'<em>AdSense Now! Lit
 <br />
 
 <table class="form-table">
-<tr><th scope="row"><?php printf(__('Options (for the %s theme)', 'easy-adsenser'), $mThemeName); ?></th></tr>
+<tr><th scope="row"><b><?php printf(__('Options (for the %s theme)', 'easy-adsenser'), $mThemeName); ?></b></th></tr>
 </table>
 
 <table class="form-table" style="width:100%">
@@ -219,7 +219,7 @@ if (!$adNwOptions['kill_invites']) {
 <?php include (dirname (__FILE__).'/tail-text.php'); ?>
 
 <table class="form-table" >
-<tr><th scope="row"><?php _e('Credits', 'easy-adsenser'); ?></th></tr>
+<tr><th scope="row"><b><?php _e('Credits', 'easy-adsenser'); ?></b></th></tr>
 <tr><td>
 <ul style="padding-left:10px;list-style-type:circle; list-style-position:inside;" >
 <li>
