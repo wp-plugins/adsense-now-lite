@@ -3,8 +3,8 @@ Contributors: manojtd
 Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
-Tested up to: 3.5
-Stable tag: 3.31
+Tested up to: 3.6
+Stable tag: 3.40
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
 
@@ -26,13 +26,13 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 = New in this Release =
 
-Updating a few translations. Minor changes to the admin page.
+Compatibility with WP3.6.
 
 == Upgrade Notice ==
 
-= 3.31 =
+= 3.40 =
 
-Updating a few translations. Minor changes to the admin page.
+Compatibility with WP3.6.
 
 == Screenshots ==
 
@@ -94,6 +94,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V3.40: Compatibility with WP3.6. [Aug 8, 2013]
 * V3.31: Updating a few translations. Minor changes to the admin page. [Jun 10, 2013]
 * V3.30: Correcting W3C markup validation errors on the admin page. [Apr 14, 2013]
 * V3.26: Updating a few translations. [Mar 30, 2013]
