@@ -3,7 +3,7 @@
 Plugin Name: AdSense Now!
 Plugin URI: http://www.thulasidas.com/adsense
 Description: <em>Lite Version</em>: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=adsense-now-lite.php">Settings &rarr; AdSense Now!</a>.
-Version: 3.40
+Version: 3.50
 Author: Manoj Thulasidas
 Author URI: http://www.thulasidas.com
 */
@@ -214,7 +214,7 @@ if (!class_exists("adsNow")) {
       return $links;
     }
 
-    function contentMeta() {
+    function getMetaOptions() {
       $adNwOptions = $this->getAdminOptions();
       global $post;
       $lookup = array('adsense' => 'adsense',
@@ -256,7 +256,7 @@ if (!class_exists("adsNow")) {
       global $nwCount ;
       if ($nwCount >= $this->nwMax) return $content ;
       if(strpos($content, "<!--noadsense-->") !== false) return $content;
-      $metaOptions = $this->contentMeta() ;
+      $metaOptions = $this->getMetaOptions() ;
       if ($metaOptions['adsense'] == 'no') return $content;
 
       $show_leadin = $metaOptions['show_leadin'] ;
