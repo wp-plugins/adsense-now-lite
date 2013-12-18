@@ -21,11 +21,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 @include(dirname (__FILE__).'/myPlugins.php');
 
 echo '<script type="text/javascript" src="'. get_option('siteurl') . '/' . PLUGINDIR . '/' .  basename(dirname(__FILE__)) . '/wz_tooltip.js"></script>' ?>
-<div class="wrap" style="width:850px">
+<div class="wrap" style="width:1000px">
 
 <h2>AdSense Now! Setup</h2>
 
-<form method="post" name="adsenser" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
+<form method="post" name="adsenser" action="">
 <?php
   $plgDir = dirname(__FILE__) ;
   $plgName = 'adsense-now' ;
@@ -34,7 +34,7 @@ echo '<script type="text/javascript" src="'. get_option('siteurl') . '/' . PLUGI
 ?>
 
 <table class="form-table">
-<tr><th scope="row" colspan=3><b><?php _e('Instructions', 'easy-adsenser') ; ?></b></th></tr>
+<tr><th scope="row" colspan=3><h3><?php _e('Instructions', 'easy-adsenser') ; ?></h3></th></tr>
 <tr>
 <td style="width:37%;">
 <ul style="padding-left:10px;list-style-type:circle; list-style-position:inside;" >
@@ -58,24 +58,23 @@ printf(__('A few easy steps to setup %s', 'easy-adsenser'),'<em>AdSense Now! Lit
 
 <br />
 
-<table class="form-table">
-<tr><th scope="row"><b><?php printf(__('Options (for the %s theme)', 'easy-adsenser'), $mThemeName); ?></b></th></tr>
+<table>
+<tr><th scope="row"><h3><?php printf(__('Options (for the %s theme)', 'easy-adsenser'), $mThemeName); ?></h3></th></tr>
 </table>
 
-<table class="form-table" style="width:100%">
+<table style="width:100%">
 <tr>
 <td style="width:450px">
-<b><?php _e('Ad Blocks in Your Posts', 'easy-adsenser') ; ?></b><br />
-<?php _e('[Appears in your posts and pages]', 'easy-adsenser') ; ?><br />
-<textarea cols="50" rows="25" name="adsNowText" style="width: 96%; height: 250px;"><?php echo(stripslashes(htmlspecialchars($adNwOptions['ad_text']))) ?></textarea>
-
-<br style="line-height: 25px;" />
+<h4><?php _e('Ad Blocks in Your Posts', 'easy-adsenser') ; ?></h4>
+<h5><?php _e('[Appears in your posts and pages]', 'easy-adsenser') ; ?></h5>
+<textarea cols="50" rows="25" name="adsNowText" style="width: 96%; height: 200px;"><?php echo(stripslashes(htmlspecialchars($adNwOptions['ad_text']))) ?></textarea>
 
 </td>
 <td style="width:400px">
-<b><?php _e('Ad Alignment', 'easy-adsenser') ; ?></b>&nbsp;
-<b><?php _e('(Where to show?)', 'easy-adsenser') ; ?></b>
-<table style="background-color=#fff;width:450px;vertical-align:middle;text-align:center;">
+<h4><?php _e('Ad Alignment', 'easy-adsenser') ; ?></h4>
+<h5><?php _e('(Where to show?)', 'easy-adsenser') ; ?></h5>
+
+<table style="background-color:#fff;width:450px;vertical-align:middle;text-align:center;padding:2px">
 <tr>
 <td>&nbsp;</td><td><?php _e('Align Left', 'easy-adsenser') ; ?> </td><td><?php _e('Center', 'easy-adsenser') ; ?> </td><td><?php _e('Align Right', 'easy-adsenser') ; ?> </td><td><?php _e('Suppress', 'easy-adsenser') ; ?></td></tr>
 <tr>
@@ -113,21 +112,21 @@ printf(__('A few easy steps to setup %s', 'easy-adsenser'),'<em>AdSense Now! Lit
 </td>
 </tr>
 <tr><td colspan="5" style="text-align:left;">
-<b><?php _e('Suppress AdSense Ad Blocks on:', 'easy-adsenser') ; ?></b>&nbsp;&nbsp;
+<b style="display:inline-block;width:35%"><?php _e('Suppress AdSense Ad Blocks on:', 'easy-adsenser') ; ?></b>
 <input type="checkbox" id="adNwKillPages" name="adNwKillPages" value="true" <?php if ($adNwOptions['kill_pages']) { echo('checked="checked"'); }?> /> <a href="http://codex.wordpress.org/Pages" target="_blank" title="<?php _e('Click to see the difference between posts and pages', 'easy-adsenser') ; ?>"><?php _e('Pages (Ads only on Posts)', 'easy-adsenser') ; ?></a><br />
-<label for="adNwKillAttach" title="<?php _e('Pages that show attachments', 'easy-adsenser') ; ?>">
-<input type="checkbox" id="adNwKillAttach" name="adNwKillAttach" <?php if ($adNwOptions['kill_attach']) { echo('checked="checked"'); }?> /> <?php _e('Attachment Page', 'easy-adsenser') ; ?></label>&nbsp;&nbsp;
-<label for="adNwKillHome" title="<?php _e('Home Page and Front Page are the same for most blogs', 'easy-adsenser') ; ?>">
-<input type="checkbox" id="adNwKillHome" name="adNwKillHome" <?php if ($adNwOptions['kill_home']) { echo('checked="checked"'); }?> /> <?php _e('Home Page', 'easy-adsenser') ; ?></label>&nbsp;
-<label for="adNwKillFront" title="<?php _e('Home Page and Front Page are the same for most blogs', 'easy-adsenser') ; ?>">
-<input type="checkbox" id="adNwKillFront" name="adNwKillFront" <?php if ($adNwOptions['kill_front']) { echo('checked="checked"'); }?> /> <?php _e('Front Page', 'easy-adsenser') ; ?></label>&nbsp;&nbsp;
+<label style="display:inline-block;width:35%" for="adNwKillAttach" title="<?php _e('Pages that show attachments', 'easy-adsenser') ; ?>">
+<input type="checkbox" id="adNwKillAttach" name="adNwKillAttach" <?php if ($adNwOptions['kill_attach']) { echo('checked="checked"'); }?> /> <?php _e('Attachment Page', 'easy-adsenser') ; ?></label>
+<label style="display:inline-block;width:25%" for="adNwKillHome" title="<?php _e('Home Page and Front Page are the same for most blogs', 'easy-adsenser') ; ?>">
+<input type="checkbox" id="adNwKillHome" name="adNwKillHome" <?php if ($adNwOptions['kill_home']) { echo('checked="checked"'); }?> /> <?php _e('Home Page', 'easy-adsenser') ; ?></label>
+<label style="display:inline-block;width:30%" for="adNwKillFront" title="<?php _e('Home Page and Front Page are the same for most blogs', 'easy-adsenser') ; ?>">
+<input type="checkbox" id="adNwKillFront" name="adNwKillFront" <?php if ($adNwOptions['kill_front']) { echo('checked="checked"'); }?> /> <?php _e('Front Page', 'easy-adsenser') ; ?></label>
 <br />
-<label for="adNwKillCat" title="<?php _e('Pages that come up when you click on category names', 'easy-adsenser') ; ?>">
-<input type="checkbox" id="adNwKillCat" name="adNwKillCat" <?php if ($adNwOptions['kill_cat']) { echo('checked="checked"'); }?> /> <?php _e('Category Pages', 'easy-adsenser') ; ?></label>&nbsp;&nbsp;&nbsp;&nbsp;
-<label for="adNwKillTag" title="<?php _e('Pages that come up when you click on tag names', 'easy-adsenser') ; ?>">
-<input type="checkbox" id="adNwKillTag" name="adNwKillTag" <?php if ($adNwOptions['kill_tag']) { echo('checked="checked"'); }?> /> <?php _e('Tag Pages', 'easy-adsenser') ; ?></label>&nbsp;&nbsp;&nbsp;
-<label for="adNwKillArchive" title="<?php _e('Pages that come up when you click on year/month archives', 'easy-adsenser') ; ?>">
-<input type="checkbox" id="adNwKillArchive" name="adNwKillArchive" <?php if ($adNwOptions['kill_archive']) { echo('checked="checked"'); }?> /> <?php _e('Archive Pages', 'easy-adsenser') ; ?></label>&nbsp;&nbsp;
+<label style="display:inline-block;width:35%" for="adNwKillCat" title="<?php _e('Pages that come up when you click on category names', 'easy-adsenser') ; ?>">
+<input type="checkbox" id="adNwKillCat" name="adNwKillCat" <?php if ($adNwOptions['kill_cat']) { echo('checked="checked"'); }?> /> <?php _e('Category Pages', 'easy-adsenser') ; ?></label>
+<label style="display:inline-block;width:25%" for="adNwKillTag" title="<?php _e('Pages that come up when you click on tag names', 'easy-adsenser') ; ?>">
+<input type="checkbox" id="adNwKillTag" name="adNwKillTag" <?php if ($adNwOptions['kill_tag']) { echo('checked="checked"'); }?> /> <?php _e('Tag Pages', 'easy-adsenser') ; ?></label>
+<label style="display:inline-block;width:30%" for="adNwKillArchive" title="<?php _e('Pages that come up when you click on year/month archives', 'easy-adsenser') ; ?>">
+<input type="checkbox" id="adNwKillArchive" name="adNwKillArchive" <?php if ($adNwOptions['kill_archive']) { echo('checked="checked"'); }?> /> <?php _e('Archive Pages', 'easy-adsenser') ; ?></label>
 <br style="line-height: 30px;" />
 <br />
 <div style="background-color:#cff;padding:5px;border: solid 1px;margin-top:10px;">
@@ -230,5 +229,5 @@ if (!$adNwOptions['kill_invites']) {
 </td>
 </tr>
 </table>
-
-<?php echo '</div>' ; ?>
+<?php
+echo '</div>' ;
