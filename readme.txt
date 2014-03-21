@@ -4,7 +4,8 @@ Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 3.8
-Stable tag: 3.60
+Stable tag: 4.00
+License: GPL2 or later
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
 
@@ -24,15 +25,9 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 *AdSense Now!* is the freely distributed version of a premium plugin. The [Pro version](http://buy.ads-ez.com/adsense-now/ "Pro version of the AdSense Now! plugin for only $3.95") gives you more control. It gives you filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned.
 
-= New in this Release =
-
-Compatibility with WordPress P3.8. Admin page modifications.
-
 == Upgrade Notice ==
 
-= 3.60 =
-
-Compatibility with WordPress P3.8. Admin page modifications.
+Major changes to the design -- adding a translation interface, getting ready to change options handling.
 
 == Screenshots ==
 
@@ -46,13 +41,13 @@ Compatibility with WordPress P3.8. Admin page modifications.
 
 == Frequently Asked Questions ==
 
-= Why do I get a "Plugin does not have valid header" error? =
+= I activated the plugin, and I see a lot of red boxes on my blog posts your ads will be inserted here. How do I get rid of them? =
 
-This seems to be a problem with some WordPress installations. I have never been able to reproduce this error on any of my installations. I have found [this on the web](http://webdesign.anmari.com/2312/activation-error-plugin-does-not-have-valid-header-still-activates/ "This may give you some ideas") though.
+AdSense Now! draws a red box on your blog posts to show where the ads would be shown if you entered the ad code on its admin page. This is meant to serve as a reminder for you to go to the admin page and enter the ad code. If you would like to suppress them, disable the corresponding ad slot by selecting "Suppress" under "Where to Show?" on the plugin admin page.
 
 = What are the different versions of the plugin? =
 
-AdSense Now is the freely distributed version of a premium plugin. The [Pro version](https://buy.thulasidas.com/adsense-now "Pro version of the AdSense Now plugin") gives you more benefits -- lets you activate a filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned. The Pro version costs $3.95, and is appropriate if you expect to make more than $100 of ad revenue from your site.
+AdSense Now! is the freely distributed version of a premium plugin. The [Pro version](https://buy.thulasidas.com/adsense-now "Pro version of the AdSense Now plugin") gives you more benefits -- lets you activate a filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned. The Pro version costs $3.95, and is appropriate if you expect to make more than $100 of ad revenue from your site.
 
 = How can I contact the plugin author if I need help? =
 
@@ -94,6 +89,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V4.00: Major changes to the design -- adding a translation interface, getting ready to change options handling. [Mar 22, 2014]
 * V3.60: Compatibility with WordPress P3.8. Admin page modifications. [Dec 18, 2013]
 * V3.40: Compatibility checks for WordPress V3.7. Translation updates. [Nov 11, 2013]
 * V3.41: Updating translations. [Aug 23, 2013]
