@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 3.8
-Stable tag: 4.00
+Stable tag: 4.20
 License: GPL2 or later
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
@@ -27,7 +27,7 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 == Upgrade Notice ==
 
-Major changes to the design -- adding a translation interface, getting ready to change options handling.
+Major changes to options handling.
 
 == Screenshots ==
 
@@ -51,7 +51,7 @@ AdSense Now! is the freely distributed version of a premium plugin. The [Pro ver
 
 = How can I contact the plugin author if I need help? =
 
-This plugin uses a paid support model in order to manage the support load. Each [support ticket](http://support.thulasidas.com "Ask a support question") will be charged at $0.95 for the Lite version (and for the Pro version after a short free support period). The support ticket is valid for 48 hours, and further follow-up questions will call for a new support ticket.
+This plugin uses a paid support model in order to manage the support load. Each [support ticket](http://support.thulasidas.com "Ask a support question") will be charged at $0.95 for the Lite version (and for the Pro version after a short free support period). The support ticket is valid for 72 hours, and further follow-up questions will call for a new support ticket.
 
 = I still don't get it. Porn and site block - that you already have during Asdense ad setup? =
 
@@ -89,6 +89,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V4.20: Major changes to options handling. [Apr 12, 2014]
 * V4.00: Major changes to the design -- adding a translation interface, getting ready to change options handling. [Mar 22, 2014]
 * V3.60: Compatibility with WordPress P3.8. Admin page modifications. [Dec 18, 2013]
 * V3.40: Compatibility checks for WordPress V3.7. Translation updates. [Nov 11, 2013]

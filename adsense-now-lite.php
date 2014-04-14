@@ -4,7 +4,7 @@
   Plugin Name: AdSense Now!
   Plugin URI: http://www.thulasidas.com/adsense
   Description: <em>Lite Version</em>: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=adsense-now-lite.php">Settings &rarr; AdSense Now!</a>.
-  Version: 4.00
+  Version: 4.20
   Author: Manoj Thulasidas
   Author URI: http://www.thulasidas.com
  */
@@ -37,56 +37,162 @@ if (!class_exists("AdsNow")) {
 
   class AdsNow extends EzBasePlugin {
 
-    var $locale, $defaults, $adminOptions, $options, $adminOptionName;
+    var $defaults, $positions, $adminMsg;
+    var $kills = array('page', 'sticky', 'home', 'front_page', 'category',
+        'tag', 'archive', 'search', 'single', 'attachment');
 
     function AdsNow() { //constructor
       parent::__construct("adsense-now", "AdSense Now!", __FILE__);
-      $this->defaults = array ('defaultText' => 'Please generate and paste your ad code here. If left empty, the ad location will be highlighted on your blog pages with a reminder to enter your code.');
-    }
-
-    function init() {
-      $this->getAdminOptions();
+      $this->adminMsg = '';
+      $this->defaults = array('defaultText' => 'Please generate and paste your ad code here. If left empty, the ad location will be highlighted on your blog pages with a reminder to enter your code.');
+      $defaultOptions = $this->mkDefaultOptions();
+      $this->optionName = "adsNow" . get_option('stylesheet');
+      $this->options = get_option($this->optionName);
+      if (empty($this->options)) {
+        $this->options = $defaultOptions;
+      }
+      else {
+        $this->options = array_merge($defaultOptions, $this->options);
+      }
+      $this->positions = array(__('Top', 'adsense-now') => 'show_leadin',
+          __('Middle', 'adsense-now') => 'show_midtext',
+          __('Bottom', 'adsense-now') => 'show_leadout');
     }
 
     //Returns an array of admin options
-    function getAdminOptions($reset = false) {
-      if (!$reset && count($this->adminOptions) > 0) {
-        return $this->adminOptions;
-      }
-      $mThemeName = get_option('stylesheet');
-      $mOptions = "adsNow" . $mThemeName;
-      $adsNowAdminOptions = array('info' => "<!-- AdSense Now V2.03 -->\n",
+    function mkDefaultOptions() {
+      $defaultOptions = array('info' => "<!-- AdSense Now V2.03 -->\n",
           'ad_text' => $this->defaults['defaultText'],
           'show_leadin' => 'float:right',
           'show_midtext' => 'float:left',
           'show_leadout' => 'float:right',
           'kill_invites' => false,
-          'kill_rating' => false,
-          'kill_pages' => false,
-          'kill_home' => false,
-          'kill_attach' => false,
-          'kill_front' => false,
-          'kill_cat' => false,
-          'kill_tag' => false,
-          'kill_archive' => false);
-
-      $adNwOptions = get_option($mOptions);
-      if (empty($adNwOptions)) {
-        // try loading the default from the pre 1.3 version, so as not to annoy
-        // the dudes who have already been using adNwsenser
-        $adminOptionsName = "adsNowAdminOptions";
-        $adNwOptions = get_option($adminOptionsName);
+          'kill_rating' => false,);
+      foreach ($this->kills as $k) {
+        $defaultOptions["kill_$k"] = false;
       }
-      if (!empty($adNwOptions) && !$reset) {
-        foreach ($adNwOptions as $key => $option) {
-          $adsNowAdminOptions[$key] = $option;
-        }
+      return $defaultOptions;
+    }
+
+    function mkHelpTags() {
+      $this->helpTags = array();
+      $o = new EzHelpTag('help0');
+      $o->title = __('Click for help', 'adsense-now');
+      $o->tipTitle = __('How to Set it up', 'adsense-now');
+      $o->desc = sprintf(__('A few easy steps to setup %s', 'adsense-now'), "<em>AdSense Now!</em>");
+      $this->helpTags[] = $o;
+
+      $o = new EzHelpTag('help1');
+      $o->title = __('Click for help', 'adsense-now');
+      $o->tipTitle = __('How to Control AdSense on Each Post', 'adsense-now');
+      $o->desc = __('Need to control ad blocks on each post?', 'adsense-now');
+      $this->helpTags[] = $o;
+
+      $o = new EzHelpPopUp('http://wordpress.org/extend/plugins/adsense-now-lite/');
+      $o->title = __('Click for help', 'adsense-now');
+      $o->desc = __('Check out the FAQ and rate this plugin.', 'adsense-now');
+      $this->helpTags[] = $o;
+    }
+
+    function mkEzOptions() {
+      if (!empty($this->ezOptions)) {
+        return;
+      }
+      $this->ezOptions['info'] = new EzBaseOption('', 'info');
+      $this->ezOptions['kill_invites'] = new EzBaseOption('', 'kill_invites');
+      $this->ezOptions['kill_rating'] = new EzBaseOption('', 'kill_rating');
+
+      $o = new EzTextArea('ad_text');
+      $o->before = "<b>" . __('Ad Blocks in Your Posts', 'adsense-now') .
+              "</b>&nbsp;";
+      $o->desc = __('[Appears in your posts and pages]', 'adsense-now')
+              . '<br /><br />';
+      $o->style = "width:96%;height:200px;";
+      $o->width = "50";
+      $o->height = "25";
+      $o->after = "<br />";
+      $this->ezOptions['ad_text'] = clone $o;
+      foreach ($this->positions as $position => $slot) {
+        $o = new EzRadioBox($slot);
+        $o->title = sprintf(__('How to align or suppress the %s ad block', 'adsense-now'), $position);
+        $c = $o->addChoice('float:left', 'float:left', '');
+        $c->before = '<td>';
+        $c->after = "</td>\n";
+        $c = $o->addChoice('text-align:center', 'text-align:center', '');
+        $c->before = '<td>';
+        $c->after = '</td>';
+        $c = $o->addChoice('float:right', 'float:right', '');
+        $c->before = '<td>';
+        $c->after = '</td>';
+        $c = $o->addChoice('suppress', 'no', '');
+        $c->before = '<td>';
+        $c->after = '</td>';
+        $this->ezOptions[$slot] = clone $o;
       }
 
-      update_option($mOptions, $adsNowAdminOptions);
-      $this->adminOptions = $adsNowAdminOptions;
-      $this->adminOptionName = $mOptions;
-      return $adsNowAdminOptions;
+      $o = new EzCheckBox('kill_page');
+      $o->title = __('Do not show ads on pages. Ad will appear on posts. Please see the differece at http://support.wordpress.com/post-vs-page/', 'adsense-now');
+      $o->desc = __('Pages (Ads only on Posts)', 'adsense-now');
+      $o->before = "&nbsp;";
+      $o->after = "<br />";
+      $this->ezOptions['kill_page'] = clone $o;
+
+      $o = new EzCheckBox('kill_sticky');
+      $o->title = __('Suppress ads on sticky front page. Sticky front page is a post used as the front page of the blog.', 'adsense-now');
+      $o->desc = __('Sticky Front Page', 'adsense-now');
+      $o->labelWidth = "35%";
+      $this->ezOptions['kill_sticky'] = clone $o;
+
+      $o = new EzCheckBox('kill_home');
+      $o->title = __('Home Page and Front Page are the same for most blogs', 'adsense-now');
+      $o->desc = __('Home Page', 'adsense-now');
+      $o->labelWidth = "25%";
+      $this->ezOptions['kill_home'] = clone $o;
+
+      $o = new EzCheckBox('kill_front_page');
+      $o->title = __('Home Page and Front Page are the same for most blogs', 'adsense-now');
+      $o->desc = __('Front Page', 'adsense-now');
+      $o->labelWidth = "30%";
+      $o->after = "<br />";
+      $this->ezOptions['kill_front_page'] = clone $o;
+
+      $o = new EzCheckBox('kill_category');
+      $o->title = __('Pages that come up when you click on category names', 'adsense-now');
+      $o->desc = __('Category Pages', 'adsense-now');
+      $o->labelWidth = "35%";
+      $this->ezOptions['kill_category'] = clone $o;
+
+      $o = new EzCheckBox('kill_tag');
+      $o->title = __('Pages that come up when you click on tag names', 'adsense-now');
+      $o->desc = __('Tag Pages', 'adsense-now');
+      $o->labelWidth = "25%";
+      $this->ezOptions['kill_tag'] = clone $o;
+
+      $o = new EzCheckBox('kill_archive');
+      $o->title = __('Pages that come up when you click on year/month archives', 'adsense-now');
+      $o->desc = __('Archive Pages', 'adsense-now');
+      $o->labelWidth = "30%";
+      $o->after = "<br />";
+      $this->ezOptions['kill_archive'] = clone $o;
+
+      $o = new EzCheckBox('kill_search');
+      $o->title = __('Pages showing search results', 'adsense-now');
+      $o->desc = __('Search Results', 'adsense-now');
+      $o->labelWidth = "35%";
+      $this->ezOptions['kill_search'] = clone $o;
+
+      $o = new EzCheckBox('kill_single');
+      $o->title = __('Posts (ads will be shown only on other kind of pages as specified in these checkboxes)', 'adsense-now');
+      $o->desc = __('Single Posts', 'adsense-now');
+      $o->labelWidth = "25%";
+      $this->ezOptions['kill_single'] = clone $o;
+
+      $o = new EzCheckBox('kill_attachment');
+      $o->title = __('Pages that show attachments', 'adsense-now');
+      $o->desc = __('Attachment Page', 'adsense-now');
+      $o->labelWidth = "30%";
+      $o->after = "<br />";
+      $this->ezOptions['kill_attachment'] = clone $o;
     }
 
     function handleDefaultText($text, $key = '300x250') {
@@ -101,6 +207,101 @@ if (!class_exists("AdsNow")) {
       return $ret;
     }
 
+    function isKilled() {
+      $killed = false;
+      foreach ($this->kills as $k) {
+        $fn = "is_$k";
+        if ($this->options["kill_$k"] && $fn()) {
+          $killed = true;
+        }
+      }
+      return $killed;
+    }
+
+    function handleSubmits() {
+      if (empty($_POST)) {
+        return;
+      }
+      if (!check_admin_referer('AdsenseNowSubmit', 'AdsenseNowNonce')) {
+        return;
+      }
+      if (isset($_POST['saveChanges'])) {
+        $this->mkEzOptions();
+        $this->setOptionValues();
+
+        foreach ($this->ezOptions as $k => $o) {
+          if (isset($this->options[$k])) {
+            $this->options[$k] = $o->get();
+          }
+          else {
+            if (WP_DEBUG) {
+              echo "<div class='error'>Warning: <code>option[$k]</code> is not defined, but <code>ezOption[$k]</code> exists!</div>";
+            }
+          }
+        }
+
+        update_option($this->optionName, $this->options);
+
+        $this->adminMsg = "<div class='updated'><p><strong>" .
+                __('Settings Updated.', 'adsense-now') .
+                "</strong></p> </div>";
+      }
+      else if (isset($_POST['resetOptions'])) {
+        $this->options = $this->mkDefaultOptions();
+        update_option($this->optionName, $this->options);
+        $this->adminMsg = "<div class='updated'><p><strong>" .
+                __('Ok, all your settings have been discarded!', 'adsense-now') .
+                "</strong></p> </div>";
+      }
+      else if (isset($_POST['cleanDB']) || isset($_POST['uninstall'])) {
+        $this->options = $this->mkDefaultOptions();
+        update_option($this->optionName, $this->options);
+        $this->cleanDB('adsNow');
+
+        $this->adminMsg = "<div class='updated'><p><strong>" .
+                __('Database has been cleaned. All your options for this plugin (for all themes) have been removed.', 'adsense-now') .
+                "</strong></p> </div>";
+        echo '</strong></p> </div>';
+        if (isset($_POST['uinstall'])) {
+          remove_action('admin_menu', 'adsNow_ap');
+          deactivate_plugins('adsense-now-lite/adsense-now-lite.php', true);
+          $this->adminMsg = "<div class='updated'><p><strong>" .
+                  __('This plugin can be deactivated now. ', 'adsense-now') .
+                  "<a href='plugins.php'>" .
+                  __('Go to Plugins', 'adsense-now') .
+                  "</a>.</strong></p></div>";
+          return;
+        }
+      }
+    }
+
+    function migrateOptions() {
+      $update = false;
+      $lookup = array('limit_lu' => '',
+          'allow_exitjunction' => '',
+          'kill_pages' => 'kill_page',
+          'kill_attach' => 'kill_attachment',
+          'kill_front' => 'kill_front_page',
+          'kill_cat' => 'kill_category',
+          'mc' => '',
+          'gFilter' => '',
+          'filterValue' => '',
+          'bannedIPs' => '',
+          'compatMode' => '');
+      foreach ($lookup as $k => $v) {
+        if (isset($this->options[$k])) {
+          if (!empty($v)) {
+            $this->options[$v] = $this->options[$k];
+          }
+          unset($this->options[$k]);
+          $update = true;
+        }
+      }
+      if ($update) {
+        update_option($this->optionName, $this->options);
+      }
+    }
+
     //Prints out the admin page
     function printAdminPage() {
       $ez = parent::printAdminPage();
@@ -110,75 +311,9 @@ if (!class_exists("AdsNow")) {
       if (empty($this->defaults)) {
         return;
       }
-
-      $mThemeName = get_option('stylesheet');
-      $mOptions = "adsNow" . $mThemeName;
-      $adNwOptions = $this->getAdminOptions();
-
-      if (isset($_POST['update_adsNowSettings'])) {
-        if (isset($_POST['adsNowText'])) {
-          $adNwOptions['ad_text'] = $_POST['adsNowText'];
-        }
-        if (isset($_POST['adsNowShowLeadin'])) {
-          $adNwOptions['show_leadin'] = $_POST['adsNowShowLeadin'];
-        }
-        if (isset($_POST['adsNowShowMidtext'])) {
-          $adNwOptions['show_midtext'] = $_POST['adsNowShowMidtext'];
-        }
-        if (isset($_POST['adsNowShowLeadout'])) {
-          $adNwOptions['show_leadout'] = $_POST['adsNowShowLeadout'];
-        }
-        if (isset($_POST['kill_invites'])) {
-          $adNwOptions['kill_invites'] = $_POST['kill_invites'];
-        }
-        if (isset($_POST['kill_rating'])) {
-          $adNwOptions['kill_rating'] = $_POST['kill_rating'];
-        }
-        $adNwOptions['kill_pages'] = isset($_POST['adNwKillPages']);
-        $adNwOptions['kill_home'] = isset($_POST['adNwKillHome']);
-        $adNwOptions['kill_attach'] = isset($_POST['adNwKillAttach']);
-        $adNwOptions['kill_front'] = isset($_POST['adNwKillFront']);
-        $adNwOptions['kill_cat'] = isset($_POST['adNwKillCat']);
-        $adNwOptions['kill_tag'] = isset($_POST['adNwKillTag']);
-        $adNwOptions['kill_archive'] = isset($_POST['adNwKillArchive']);
-
-        $adNwOptions['info'] = $this->info();
-
-        update_option($mOptions, $adNwOptions);
-
-        echo '<div class="updated"><p><strong>';
-        _e("Settings Updated.", "adsense-now");
-        echo '</strong></p> </div>';
-      }
-      else if (isset($_POST['reset_adsNowSettings'])) {
-        $reset = true;
-        $adNwOptions = $this->getAdminOptions($reset);
-        echo '<div class="updated"><p><strong>';
-        _e("Ok, all your settings have been discarded!", "adsense-now");
-        echo '</strong></p> </div>';
-      }
-      else if (isset($_POST['clean_db']) || isset($_POST['kill_me'])) {
-        $reset = true;
-        $adNwOptions = $this->getAdminOptions($reset);
-        $this->cleanDB('adsNow');
-
-        echo '<div class="updated"><p><strong>';
-        _e("Database has been cleaned. All your options for this plugin (for all themes) have been removed.", "adsense-now");
-        echo '</strong></p> </div>';
-        if (isset($_POST['kill_me'])) {
-          remove_action('admin_menu', 'adsNow_ap');
-          deactivate_plugins('adsense-now-lite/adsense-now-lite.php', true);
-
-          echo '<div class="updated"><p><strong>';
-          _e("This plugin has been deactivated.", "adsense-now");
-          echo '<a href="plugins.php?deactivate=true">';
-          _e("Refresh", "adsense-now");
-          echo '</a></strong></p></div>';
-
-          return;
-        }
-      }
+      $this->handleSubmits();
       if (file_exists($this->plgDir . '/admin.php')) {
+        echo $this->adminMsg;
         include ($this->plgDir . '/admin.php');
       }
       else {
@@ -215,7 +350,6 @@ if (!class_exists("AdsNow")) {
     }
 
     function getMetaOptions() {
-      $adNwOptions = $this->getAdminOptions();
       global $post;
       $lookup = array('adsense' => 'adsense',
           'adsense-top' => 'show_leadin',
@@ -223,8 +357,8 @@ if (!class_exists("AdsNow")) {
           'adsense-bottom' => 'show_leadout');
       $metaOptions = array();
       foreach ($lookup as $metaKey => $optKey) {
-        if (!empty($adNwOptions[$optKey])) {
-          $metaOptions[$optKey] = $adNwOptions[$optKey];
+        if (!empty($this->options[$optKey])) {
+          $metaOptions[$optKey] = $this->options[$optKey];
         }
         else {
           $metaOptions[$optKey] = '';
@@ -256,30 +390,11 @@ if (!class_exists("AdsNow")) {
       return $metaOptions;
     }
 
-    function adsNow_content($content) {
+    function filterContent($content) {
       if (!in_the_loop()) {
         return $content;
       }
-      $adNwOptions = $this->getAdminOptions();
-      if ($adNwOptions['kill_pages'] && is_page()) {
-        return $content;
-      }
-      if ($adNwOptions['kill_home'] && is_home()) {
-        return $content;
-      }
-      if ($adNwOptions['kill_attach'] && is_attachment()) {
-        return $content;
-      }
-      if ($adNwOptions['kill_front'] && is_front_page()) {
-        return $content;
-      }
-      if ($adNwOptions['kill_cat'] && is_category()) {
-        return $content;
-      }
-      if ($adNwOptions['kill_tag'] && is_tag()) {
-        return $content;
-      }
-      if ($adNwOptions['kill_archive'] && is_archive()) {
+      if ($this->isKilled()) {
         return $content;
       }
       global $nwCount;
@@ -299,8 +414,8 @@ if (!class_exists("AdsNow")) {
       if ($show_leadin != 'no') {
         if ($nwCount < $this->nwMax) {
           $nwCount++;
-          $adText = $this->handleDefaultText($adNwOptions['ad_text']);
-          $leadin = stripslashes($adNwOptions['info'] .
+          $adText = $this->handleDefaultText($this->options['ad_text']);
+          $leadin = stripslashes($this->options['info'] .
                   "<!-- Post[count: " . $nwCount . "] -->\n" .
                   '<div class="adsense adsense-leadin" style="' .
                   $show_leadin . ';margin: 12px;">' .
@@ -328,8 +443,8 @@ if (!class_exists("AdsNow")) {
           }
           $pickme = $poses[floor(sizeof($poses) / 2)];
           $nwCount++;
-          $adText = $this->handleDefaultText($adNwOptions['ad_text']);
-          $midtext = stripslashes($adNwOptions['info'] .
+          $adText = $this->handleDefaultText($this->options['ad_text']);
+          $midtext = stripslashes($this->options['info'] .
                   "<!-- Post[count: " . $nwCount . "] -->\n" .
                   '<div class="adsense adsense-midtext" style="' .
                   $show_midtext . ';margin: 12px;">' .
@@ -343,8 +458,8 @@ if (!class_exists("AdsNow")) {
       if ($show_leadout != 'no') {
         if ($nwCount < $this->nwMax) {
           $nwCount++;
-          $adText = $this->handleDefaultText($adNwOptions['ad_text']);
-          $leadout = stripslashes($adNwOptions['info'] .
+          $adText = $this->handleDefaultText($this->options['ad_text']);
+          $leadout = stripslashes($this->options['info'] .
                   "<!-- Post[count: " . $nwCount . "] -->\n" .
                   '<div class="adsense adsense-leadout" style="' .
                   $show_leadout . ';margin: 12px;">' .
@@ -390,9 +505,9 @@ if (class_exists("AdsNow")) {
 
     }
 
-    add_filter('the_content', array($adsNow, 'adsNow_content'));
+    add_filter('the_content', array($adsNow, 'filterContent'));
     add_action('admin_menu', 'adsNow_ap');
-    add_action('activate_' . basename($adsNow->plgDir) . '/' . basename(__FILE__), array($adsNow, 'init'));
     add_filter('plugin_action_links', array($adsNow, 'plugin_action'), -10, 2);
+    register_activation_hook(__FILE__, array($adsNow, 'migrateOptions'));
   }
 }

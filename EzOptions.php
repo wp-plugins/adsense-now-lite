@@ -128,7 +128,7 @@ if (!class_exists("EzBaseOption")) {
 
     function mkTagToTip() {
       if (!empty($this->title)) {
-        $toolTip = "<span style='text-decoration:underline' "
+        $toolTip = "<span style='text-decoration:underline;cursor:pointer;' "
                 . "onmouseover=\"Tip('{$this->title}')\" "
                 . "onclick=\"TagToTip('{$this->name}', WIDTH, 300, "
                 . "TITLE, '{$this->tipTitle}', STICKY, 1, CLOSEBTN, true, "
@@ -221,12 +221,12 @@ if (!class_exists("EzBaseOption")) {
         $style = "";
       }
       echo "{$this->before}\n";
-      echo "<span $style id='{$this->name}' $toolTip>{$this->desc} {$this->between}</span>";
+      echo "<span $style id='{$this->name}' $toolTip>{$this->desc} {$this->between}";
       echo "\n{$this->after}\n";
     }
 
     function postRender() {
-
+      echo "</span>";
     }
 
     function render() {
@@ -333,7 +333,7 @@ if (!class_exists("EzBaseOption")) {
 
     function render() {
       echo "{$this->before}\n";
-      echo "<span style='text-decoration:underline' "
+      echo "<span style='text-decoration:underline;cursor:pointer;' "
       . "onmouseover=\"Tip('{$this->title}')\" "
       . "onclick=\"popupwindow('{$this->name}', 'DontCare', 1024, 1024);"
       . "return false;\" onmouseout=\"UnTip();\">"
@@ -384,6 +384,8 @@ if (!class_exists("EzBaseOption")) {
 
   class EzSubmit extends EzBaseOption {
 
+    var $onclick = '';
+
     function EzSubmit($name) {
       parent::EzBaseOption('submit', $name);
       $this->value = $this->desc;
@@ -394,6 +396,9 @@ if (!class_exists("EzBaseOption")) {
       echo "<input type='{$this->type}' id='{$this->name}' name='{$this->name}' ";
       if (!empty($this->style)) {
         echo " style='{$this->style}'";
+      }
+      if (!empty($this->onclick)) {
+        echo " onclick=\"{$this->onclick}\"";
       }
       echo " value='{$this->desc}' />\n";
       $this->postRender();
@@ -525,6 +530,7 @@ if (!class_exists("EzBasePlugin")) {
     var $slug, $domain, $name, $plgDir, $plgURL, $plgFile;
     var $ezTran, $ezAdmin, $myPlugins;
     var $isPro, $strPro;
+    var $options = array(), $ezOptions = array();
 
     function __construct($slug, $name, $file) {
       $this->slug = $slug;
@@ -567,12 +573,14 @@ if (!class_exists("EzBasePlugin")) {
       }
     }
 
-    function printAdminPage() {
-      // if translating, print translation interface
-      if ($this->ezTran->printAdminPage()) {
-        return;
+    function setOptionValues() {
+      $error = EzBaseOption::setValues($this->options, $this->ezOptions);
+      if (WP_DEBUG && !empty($error)) {
+        echo "<div class='error'>$error</div>";
       }
-      $this->handleSubmits();
+    }
+
+    function mkEzAdmin() {
       require_once($this->plgDir . '/myPlugins.php');
       $slug = $this->slug;
       $plg = $this->myPlugins[$slug];
@@ -585,11 +593,21 @@ if (!class_exists("EzBasePlugin")) {
         require_once($this->plgDir . '/EzAdmin.php');
         $this->ezAdmin = new EzAdmin($plg, $slug, $plgURL);
       }
-      if ($this->options['kill_author']) {
+      if (!empty($this->options['kill_author'])) {
         $this->ezAdmin->killAuthor = true;
       }
       $this->ezAdmin->domain = $this->domain;
       $this->ezAdmin->plgFile = $this->plgFile;
+      return $this->ezAdmin;
+    }
+
+    function printAdminPage() {
+      // if translating, print translation interface
+      if ($this->ezTran->printAdminPage()) {
+        return;
+      }
+      $this->handleSubmits();
+      $this->mkEzAdmin();
       return $this->ezAdmin;
     }
 
