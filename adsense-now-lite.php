@@ -4,7 +4,7 @@
   Plugin Name: AdSense Now!
   Plugin URI: http://www.thulasidas.com/adsense
   Description: <em>Lite Version</em>: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=adsense-now-lite.php">Settings &rarr; AdSense Now!</a>.
-  Version: 4.20
+  Version: 4.30
   Author: Manoj Thulasidas
   Author URI: http://www.thulasidas.com
  */
@@ -38,15 +38,17 @@ if (!class_exists("AdsNow")) {
   class AdsNow extends EzBasePlugin {
 
     var $defaults, $positions, $adminMsg;
+    var $metaOptions;
     var $kills = array('page', 'sticky', 'home', 'front_page', 'category',
         'tag', 'archive', 'search', 'single', 'attachment');
 
     function AdsNow() { //constructor
       parent::__construct("adsense-now", "AdSense Now!", __FILE__);
+      $this->prefix = 'adsNow';
       $this->adminMsg = '';
       $this->defaults = array('defaultText' => 'Please generate and paste your ad code here. If left empty, the ad location will be highlighted on your blog pages with a reminder to enter your code.');
       $defaultOptions = $this->mkDefaultOptions();
-      $this->optionName = "adsNow" . get_option('stylesheet');
+      $this->optionName = $this->prefix . get_option('stylesheet');
       $this->options = get_option($this->optionName);
       if (empty($this->options)) {
         $this->options = $defaultOptions;
@@ -61,13 +63,11 @@ if (!class_exists("AdsNow")) {
 
     //Returns an array of admin options
     function mkDefaultOptions() {
-      $defaultOptions = array('info' => "<!-- AdSense Now V2.03 -->\n",
-          'ad_text' => $this->defaults['defaultText'],
+      $defaultOptions = array('ad_text' => $this->defaults['defaultText'],
           'show_leadin' => 'float:right',
           'show_midtext' => 'float:left',
-          'show_leadout' => 'float:right',
-          'kill_invites' => false,
-          'kill_rating' => false,);
+          'show_leadout' => 'float:right') +
+              parent::mkDefaultOptions();
       foreach ($this->kills as $k) {
         $defaultOptions["kill_$k"] = false;
       }
@@ -98,9 +98,8 @@ if (!class_exists("AdsNow")) {
       if (!empty($this->ezOptions)) {
         return;
       }
-      $this->ezOptions['info'] = new EzBaseOption('', 'info');
-      $this->ezOptions['kill_invites'] = new EzBaseOption('', 'kill_invites');
-      $this->ezOptions['kill_rating'] = new EzBaseOption('', 'kill_rating');
+
+      parent::mkEzOptions();
 
       $o = new EzTextArea('ad_text');
       $o->before = "<b>" . __('Ad Blocks in Your Posts', 'adsense-now') .
@@ -218,66 +217,10 @@ if (!class_exists("AdsNow")) {
       return $killed;
     }
 
-    function handleSubmits() {
-      if (empty($_POST)) {
-        return;
-      }
-      if (!check_admin_referer('AdsenseNowSubmit', 'AdsenseNowNonce')) {
-        return;
-      }
-      if (isset($_POST['saveChanges'])) {
-        $this->mkEzOptions();
-        $this->setOptionValues();
-
-        foreach ($this->ezOptions as $k => $o) {
-          if (isset($this->options[$k])) {
-            $this->options[$k] = $o->get();
-          }
-          else {
-            if (WP_DEBUG) {
-              echo "<div class='error'>Warning: <code>option[$k]</code> is not defined, but <code>ezOption[$k]</code> exists!</div>";
-            }
-          }
-        }
-
-        update_option($this->optionName, $this->options);
-
-        $this->adminMsg = "<div class='updated'><p><strong>" .
-                __('Settings Updated.', 'adsense-now') .
-                "</strong></p> </div>";
-      }
-      else if (isset($_POST['resetOptions'])) {
-        $this->options = $this->mkDefaultOptions();
-        update_option($this->optionName, $this->options);
-        $this->adminMsg = "<div class='updated'><p><strong>" .
-                __('Ok, all your settings have been discarded!', 'adsense-now') .
-                "</strong></p> </div>";
-      }
-      else if (isset($_POST['cleanDB']) || isset($_POST['uninstall'])) {
-        $this->options = $this->mkDefaultOptions();
-        update_option($this->optionName, $this->options);
-        $this->cleanDB('adsNow');
-
-        $this->adminMsg = "<div class='updated'><p><strong>" .
-                __('Database has been cleaned. All your options for this plugin (for all themes) have been removed.', 'adsense-now') .
-                "</strong></p> </div>";
-        echo '</strong></p> </div>';
-        if (isset($_POST['uinstall'])) {
-          remove_action('admin_menu', 'adsNow_ap');
-          deactivate_plugins('adsense-now-lite/adsense-now-lite.php', true);
-          $this->adminMsg = "<div class='updated'><p><strong>" .
-                  __('This plugin can be deactivated now. ', 'adsense-now') .
-                  "<a href='plugins.php'>" .
-                  __('Go to Plugins', 'adsense-now') .
-                  "</a>.</strong></p></div>";
-          return;
-        }
-      }
-    }
-
     function migrateOptions() {
       $update = false;
-      $lookup = array('limit_lu' => '',
+      $lookup = array('info' => '',
+          'limit_lu' => '',
           'allow_exitjunction' => '',
           'kill_pages' => 'kill_page',
           'kill_attach' => 'kill_attachment',
@@ -323,22 +266,7 @@ if (!class_exists("AdsNow")) {
       }
     }
 
-//End function printAdminPage()
-
-    function info() {
-      $me = basename($this->plgDir) . '/' . basename(__FILE__);
-      $plugins = get_plugins();
-      $str = "<!-- " . $plugins[$me]['Title'] . " V" .
-              $plugins[$me]['Version'] . " -->\n";
-      return $str;
-    }
-
     var $nwMax = 3;
-
-    function cleanDB($prefix) {
-      global $wpdb;
-      $wpdb->query("DELETE FROM $wpdb->options WHERE option_name LIKE '$prefix%'");
-    }
 
     function plugin_action($links, $file) {
       if ($file == plugin_basename($this->plgDir . '/adsense-now-lite.php')) {
@@ -387,7 +315,19 @@ if (!class_exists("AdsNow")) {
           $metaOptions[$optKey] = $style;
         }
       }
+      $this->metaOptions = $metaOptions;
       return $metaOptions;
+    }
+
+    function mkAdBlock($adText, $slot) {
+      $show = $this->metaOptions["show_$slot"];
+      $info = $this->info();
+
+      $adBlock = stripslashes("$info\n<!-- Post[$slot] -->\n" .
+              '<div class="adsense adsense-' . $slot . '" style="' .
+              $show . ';margin: 12px;">' .
+              $adText . "</div>\n$info\n");
+      return $adBlock;
     }
 
     function filterContent($content) {
@@ -395,10 +335,6 @@ if (!class_exists("AdsNow")) {
         return $content;
       }
       if ($this->isKilled()) {
-        return $content;
-      }
-      global $nwCount;
-      if ($nwCount >= $this->nwMax) {
         return $content;
       }
       if (strpos($content, "<!--noadsense-->") !== false) {
@@ -409,62 +345,40 @@ if (!class_exists("AdsNow")) {
         return $content;
       }
 
+      $adText = $this->handleDefaultText($this->options['ad_text']);
+
       $show_leadin = $metaOptions['show_leadin'];
       $leadin = '';
       if ($show_leadin != 'no') {
-        if ($nwCount < $this->nwMax) {
-          $nwCount++;
-          $adText = $this->handleDefaultText($this->options['ad_text']);
-          $leadin = stripslashes($this->options['info'] .
-                  "<!-- Post[count: " . $nwCount . "] -->\n" .
-                  '<div class="adsense adsense-leadin" style="' .
-                  $show_leadin . ';margin: 12px;">' .
-                  $adText . '</div>');
-        }
+        $leadin = $this->mkAdBlock($adText, 'leadin');
       }
 
       $show_midtext = $metaOptions['show_midtext'];
       if ($show_midtext != 'no') {
-        if ($nwCount < $this->nwMax) {
-          $poses = array();
-          $lastpos = -1;
-          $repchar = "<p";
-          if (strpos($content, "<p") === false) {
-            $repchar = "<br";
-          }
-
-          while (strpos($content, $repchar, $lastpos + 1) !== false) {
-            $lastpos = strpos($content, $repchar, $lastpos + 1);
-            $poses[] = $lastpos;
-          }
-          $half = sizeof($poses);
-          while (sizeof($poses) > $half) {
-            array_pop($poses);
-          }
-          $pickme = $poses[floor(sizeof($poses) / 2)];
-          $nwCount++;
-          $adText = $this->handleDefaultText($this->options['ad_text']);
-          $midtext = stripslashes($this->options['info'] .
-                  "<!-- Post[count: " . $nwCount . "] -->\n" .
-                  '<div class="adsense adsense-midtext" style="' .
-                  $show_midtext . ';margin: 12px;">' .
-                  $adText . '</div>');
-          $content = substr_replace($content, $midtext . $repchar, $pickme, 2);
+        $poses = array();
+        $lastpos = -1;
+        $repchar = "<p";
+        if (strpos($content, "<p") === false) {
+          $repchar = "<br";
         }
+
+        while (strpos($content, $repchar, $lastpos + 1) !== false) {
+          $lastpos = strpos($content, $repchar, $lastpos + 1);
+          $poses[] = $lastpos;
+        }
+        $half = sizeof($poses);
+        while (sizeof($poses) > $half) {
+          array_pop($poses);
+        }
+        $pickme = $poses[floor(sizeof($poses) / 2)];
+        $midtext = $this->mkAdBlock($adText, 'midtext');
+        $content = substr_replace($content, $midtext . $repchar, $pickme, 2);
       }
 
       $show_leadout = $metaOptions['show_leadout'];
       $leadout = '';
       if ($show_leadout != 'no') {
-        if ($nwCount < $this->nwMax) {
-          $nwCount++;
-          $adText = $this->handleDefaultText($this->options['ad_text']);
-          $leadout = stripslashes($this->options['info'] .
-                  "<!-- Post[count: " . $nwCount . "] -->\n" .
-                  '<div class="adsense adsense-leadout" style="' .
-                  $show_leadout . ';margin: 12px;">' .
-                  $adText . '</div>');
-        }
+        $leadout = $this->mkAdBlock($adText, 'leadout');
       }
 
       return $leadin . $content . $leadout;
@@ -473,8 +387,6 @@ if (!class_exists("AdsNow")) {
   }
 
 } //End Class adsNow
-
-$nwCount = 0;
 
 // provide a replacement for htmlspecialchars_decode() (for PHP4 compatibility)
 if (!function_exists("htmlspecialchars_decode")) {

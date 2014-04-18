@@ -45,7 +45,7 @@ $this->mkHelpTags();
     </tr></table>
   <form method='post' action='#'>
     <?php
-    wp_nonce_field('AdsenseNowSubmit', 'AdsenseNowNonce');
+    $this->renderNonce();
     $ez->renderNags($this->options);
     ?>
     <br />

@@ -3,8 +3,8 @@ Contributors: manojtd
 Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
-Tested up to: 3.8
-Stable tag: 4.20
+Tested up to: 3.9
+Stable tag: 4.30
 License: GPL2 or later
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
@@ -23,11 +23,11 @@ AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Go
 
 PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
-*AdSense Now!* is the freely distributed version of a premium plugin. The [Pro version](http://buy.ads-ez.com/adsense-now/ "Pro version of the AdSense Now! plugin for only $3.95") gives you more control. It gives you filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned.
+*AdSense Now!* is the freely distributed version of a premium plugin. The [Pro version](http://buy.thulasidas.com/adsense-now/ "Pro version of the AdSense Now! plugin for only $3.95") gives you more control. It gives you filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned.
 
 == Upgrade Notice ==
 
-Major changes to options handling.
+Deep refactoring changes.
 
 == Screenshots ==
 
@@ -65,11 +65,11 @@ All `<div>`s that *AdSense Now!* creates have the class attribute `adsense`. Fur
 
 = Why another AdSense plugin? =
 
-The other plugin I have published, [Easy AdSense](http://buy.ads-ez.com/easy-adsense "The complete solution for all things AdSense related"), does everything that *AdSense Now!* does and more. But in doing so, Easy AdSense has become an All-in-One AdSense plugin, and not "Easy" any more. I wanted to go back to the basics and provide a simple plugin to get our fellow bloggers started on AdSense.
+The other plugin I have published, [Easy AdSense](http://buy.thulasidas.com/easy-adsense "The complete solution for all things AdSense related"), does everything that *AdSense Now!* does and more. But in doing so, Easy AdSense has become an All-in-One AdSense plugin, and not "Easy" any more. I wanted to go back to the basics and provide a simple plugin to get our fellow bloggers started on AdSense.
 
 = I like its simplicity, but *AdSense Now!* doesn't have all the features I need. Can you add *this* and *that* feature? =
 
-If you think *AdSense Now!* is too lean and mean for your taste, try my full-fledged, feature-rich plugin [Easy AdSense](http://buy.ads-ez.com/easy-adsense "The complete solution for all things AdSense related"). I plan to keep *AdSense Now!* simple.
+If you think *AdSense Now!* is too lean and mean for your taste, try my full-fledged, feature-rich plugin [Easy AdSense](http://buy.thulasidas.com/easy-adsense "The complete solution for all things AdSense related"). I plan to keep *AdSense Now!* simple.
 
 = I just activated the plugin. How come I don't see any ads in my blog? =
 
@@ -89,6 +89,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V4.30: Deep refactoring changes. [Apr 18, 2014]
 * V4.20: Major changes to options handling. [Apr 12, 2014]
 * V4.00: Major changes to the design -- adding a translation interface, getting ready to change options handling. [Mar 22, 2014]
 * V3.60: Compatibility with WordPress P3.8. Admin page modifications. [Dec 18, 2013]
