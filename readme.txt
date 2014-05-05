@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 3.9
-Stable tag: 4.30
+Stable tag: 4.31
 License: GPL2 or later
 
 AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
@@ -27,7 +27,7 @@ PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
 == Upgrade Notice ==
 
-Deep refactoring changes.
+Further refactoring and internationalization changes.
 
 == Screenshots ==
 
@@ -89,6 +89,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V4.31: Further refactoring and internationalization changes. [May 6, 2014]
 * V4.30: Deep refactoring changes. [Apr 18, 2014]
 * V4.20: Major changes to options handling. [Apr 12, 2014]
 * V4.00: Major changes to the design -- adding a translation interface, getting ready to change options handling. [Mar 22, 2014]

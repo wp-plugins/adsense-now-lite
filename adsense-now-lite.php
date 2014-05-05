@@ -4,7 +4,7 @@
   Plugin Name: AdSense Now!
   Plugin URI: http://www.thulasidas.com/adsense
   Description: <em>Lite Version</em>: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=adsense-now-lite.php">Settings &rarr; AdSense Now!</a>.
-  Version: 4.30
+  Version: 4.31
   Author: Manoj Thulasidas
   Author URI: http://www.thulasidas.com
  */
@@ -27,8 +27,10 @@
  */
 
 if (class_exists("AdsNowPro")) {
-  $msg = sprintf(__("<strong><em>%s Pro</em></strong> seems to be active.<br />Please use the Pro version, or deactivate it before activating <strong><em>%s</em></strong>.", "adsense-now"), "AdSense Now!", "AdSense Now!");
-  die($msg);
+  $plg = "AdSense Now! Lite";
+  $lite = plugin_basename(__FILE__);
+  include_once('ezDenyLite.php');
+  ezDenyLite($plg, $lite);
 }
 
 if (!class_exists("AdsNow")) {
@@ -387,19 +389,6 @@ if (!class_exists("AdsNow")) {
   }
 
 } //End Class adsNow
-
-// provide a replacement for htmlspecialchars_decode() (for PHP4 compatibility)
-if (!function_exists("htmlspecialchars_decode")) {
-
-  function htmlspecialchars_decode($string, $style = ENT_COMPAT) {
-    $translation = array_flip(get_html_translation_table(HTML_SPECIALCHARS, $style));
-    if ($style === ENT_QUOTES) {
-      $translation['&#039;'] = '\'';
-    }
-    return strtr($string, $translation);
-  }
-
-}
 
 if (class_exists("AdsNow")) {
   $adsNow = new AdsNow();
