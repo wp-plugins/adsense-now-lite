@@ -23,7 +23,7 @@ $this->mkHelpTags();
 ?>
 <div class="wrap" style="width:1000px">
 
-  <h2>AdSense Now! Setup</h2>
+  <h2>Now! Plugin for AdSense</h2>
   <table class="form-table">
     <tr style="vertical-align:middle">
       <td style="width:40%">

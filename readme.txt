@@ -1,53 +1,53 @@
-=== AdSense Now! ===
+=== Now! plugin for AdSense ===
 Contributors: manojtd
 Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 4.0
-Stable tag: 4.41
+Stable tag: 4.50
 License: GPL2 or later
 
-AdSense Now! gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
+Now! Plugin for AdSense gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
 
 == Description ==
 
-*AdSense Now!* is the simplest possible way to generate revenue from your blog using Google AdSense. Aiming at simplicity, *AdSense Now!* does only one thing: it puts your AdSense code in up to three spots in your posts and pages (both existing ones and those yet to be written).
+Now! Plugin for AdSense is the simplest possible way to generate revenue from your blog using Google AdSense. Aiming at simplicity, Now! Plugin for AdSense does only one thing: it puts your AdSense code in up to three spots in your posts and pages (both existing ones and those yet to be written).
 
 = Features =
 
-1. AdSense Now! enforces the Google policy of not more than three adsense blocks per page.
-1. AdSense Now! sports the simplest possible configuration interface -- nothing more than cutting and pasting AdSense code.
-1. AdSense Now! gives you an option to suppress ads on all pages (as opposed to posts), or on the front/home page, category/tag/archive listings.
-1. AdSense Now! lets you control the positioning and display of AdSense blocks in each post or page.
-1. AdSense Now! is internationalized with multiple languages supported.
+1. Now! Plugin for AdSense enforces the Google policy of not more than three adsense blocks per page.
+1. Now! Plugin for AdSense sports the simplest possible configuration interface -- nothing more than cutting and pasting AdSense code.
+1. Now! Plugin for AdSense gives you an option to suppress ads on all pages (as opposed to posts), or on the front/home page, category/tag/archive listings.
+1. Now! Plugin for AdSense lets you control the positioning and display of AdSense blocks in each post or page.
+1. Now! Plugin for AdSense is internationalized with multiple languages supported.
 
 PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
-*AdSense Now!* is the freely distributed version of a premium plugin. The [Pro version](http://buy.thulasidas.com/adsense-now/ "Pro version of the AdSense Now! plugin for only $3.95") gives you more control. It gives you filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned.
+Now! Plugin for AdSense is the freely distributed version of a premium plugin. The [Pro version](http://buy.thulasidas.com/adsense-now/ "Pro version of the Now! Plugin for AdSense plugin for only $3.95") gives you more control. It gives you filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned.
 
 == Upgrade Notice ==
 
-Minor change to the admin interface.
+Renaming the plugin as requested by Google.
 
 == Screenshots ==
 
-1. How to set the options for *AdSense Now!*
+1. How to set the options for Now! Plugin for AdSense
 
 == Installation ==
 
-1. Upload the *AdSense Now!* plugin (the whole adsense-now-lite folder) to the '/wp-content/plugins/' directory.
+1. Upload the Now! Plugin for AdSense plugin (the whole adsense-now-lite folder) to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Go to the Setup -> AdSense Now! and enter your AdSense code and options.
+3. Go to the Setup -> Now! Plugin for AdSense and enter your AdSense code and options.
 
 == Frequently Asked Questions ==
 
 = I activated the plugin, and I see a lot of red boxes on my blog posts your ads will be inserted here. How do I get rid of them? =
 
-AdSense Now! draws a red box on your blog posts to show where the ads would be shown if you entered the ad code on its admin page. This is meant to serve as a reminder for you to go to the admin page and enter the ad code. If you would like to suppress them, disable the corresponding ad slot by selecting "Suppress" under "Where to Show?" on the plugin admin page.
+Now! Plugin for AdSense draws a red box on your blog posts to show where the ads would be shown if you entered the ad code on its admin page. This is meant to serve as a reminder for you to go to the admin page and enter the ad code. If you would like to suppress them, disable the corresponding ad slot by selecting "Suppress" under "Where to Show?" on the plugin admin page.
 
 = What are the different versions of the plugin? =
 
-AdSense Now! is the freely distributed version of a premium plugin. The [Pro version](https://buy.thulasidas.com/adsense-now "Pro version of the AdSense Now plugin") gives you more benefits -- lets you activate a filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned. The Pro version costs $3.95, and is appropriate if you expect to make more than $100 of ad revenue from your site.
+Now! Plugin for AdSense is the freely distributed version of a premium plugin. The [Pro version](https://buy.thulasidas.com/adsense-now "Pro version of the AdSense Now plugin") gives you more benefits -- lets you activate a filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned. The Pro version costs $3.95, and is appropriate if you expect to make more than $100 of ad revenue from your site.
 
 = How can I contact the plugin author if I need help? =
 
@@ -61,15 +61,15 @@ Porn block also is similar -- Google lets you choose non-porn ads (I think). Wha
 
 = How can I control the appearance of the adsense blocks using CSS? =
 
-All `<div>`s that *AdSense Now!* creates have the class attribute `adsense`. Furthermore, they have attributes like `adsense-leadin`, `adsense-midtext` and `adsense-leadout` depending on the type. You can set the style for these classes in your theme `style.css` to control their appearance.
+All `<div>`s that Now! Plugin for AdSense creates have the class attribute `adsense`. Furthermore, they have attributes like `adsense-leadin`, `adsense-midtext` and `adsense-leadout` depending on the type. You can set the style for these classes in your theme `style.css` to control their appearance.
 
 = Why another AdSense plugin? =
 
-The other plugin I have published, [Easy AdSense](http://buy.thulasidas.com/easy-adsense "The complete solution for all things AdSense related"), does everything that *AdSense Now!* does and more. But in doing so, Easy AdSense has become an All-in-One AdSense plugin, and not "Easy" any more. I wanted to go back to the basics and provide a simple plugin to get our fellow bloggers started on AdSense.
+The other plugin I have published, [Easy AdSense](http://buy.thulasidas.com/easy-adsense "The complete solution for all things AdSense related"), does everything that Now! Plugin for AdSense does and more. But in doing so, Easy AdSense has become an All-in-One AdSense plugin, and not "Easy" any more. I wanted to go back to the basics and provide a simple plugin to get our fellow bloggers started on AdSense.
 
-= I like its simplicity, but *AdSense Now!* doesn't have all the features I need. Can you add *this* and *that* feature? =
+= I like its simplicity, but Now! Plugin for AdSense doesn't have all the features I need. Can you add *this* and *that* feature? =
 
-If you think *AdSense Now!* is too lean and mean for your taste, try my full-fledged, feature-rich plugin [Easy AdSense](http://buy.thulasidas.com/easy-adsense "The complete solution for all things AdSense related"). I plan to keep *AdSense Now!* simple.
+If you think Now! Plugin for AdSense is too lean and mean for your taste, try my full-fledged, feature-rich plugin [Easy AdSense](http://buy.thulasidas.com/easy-adsense "The complete solution for all things AdSense related"). I plan to keep Now! Plugin for AdSense simple.
 
 = I just activated the plugin. How come I don't see any ads in my blog? =
 
@@ -89,6 +89,7 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
+* V4.50: Renaming the plugin as requested by Google. [Nov 30, 2014]
 * V4.41: Minor change to the admin interface. [Sep 9, 2011]
 * V4.34: Compatibility with WP4.0. [Sep 6, 2014]
 * V4.33: Updating a few language files, minor documentation changes. [Jun 18, 2014]

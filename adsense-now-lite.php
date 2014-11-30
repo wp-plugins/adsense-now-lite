@@ -1,10 +1,10 @@
 <?php
 
 /*
-  Plugin Name: AdSense Now!
+  Plugin Name: Now! for AdSense
   Plugin URI: http://www.thulasidas.com/adsense
-  Description: <em>Lite Version</em>: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=adsense-now-lite.php">Settings &rarr; AdSense Now!</a>.
-  Version: 4.41
+  Description: <em>Lite Version</em>: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=adsense-now-lite.php">Settings &rarr; Now ! Plugin for AdSense</a>.
+  Version: 4.50
   Author: Manoj Thulasidas
   Author URI: http://www.thulasidas.com
  */
@@ -27,7 +27,7 @@
  */
 
 if (class_exists("AdsNowPro")) {
-  $plg = "AdSense Now! Lite";
+  $plg = "Now! Plugin for AdSense Lite";
   $lite = plugin_basename(__FILE__);
   include_once('ezDenyLite.php');
   ezDenyLite($plg, $lite);
@@ -45,7 +45,7 @@ if (!class_exists("AdsNow")) {
         'tag', 'archive', 'search', 'single', 'attachment');
 
     function AdsNow() { //constructor
-      parent::__construct("adsense-now", "AdSense Now!", __FILE__);
+      parent::__construct("adsense-now", "Now! Plugin for AdSense", __FILE__);
       $this->prefix = 'adsNow';
       $this->adminMsg = '';
       $this->defaults = array('defaultText' => 'Please generate and paste your ad code here. If left empty, the ad location will be highlighted on your blog pages with a reminder to enter your code.');
@@ -81,7 +81,7 @@ if (!class_exists("AdsNow")) {
       $o = new EzHelpTag('help0');
       $o->title = __('Click for help', 'adsense-now');
       $o->tipTitle = __('How to Set it up', 'adsense-now');
-      $o->desc = sprintf(__('A few easy steps to setup %s', 'adsense-now'), "<em>AdSense Now!</em>");
+      $o->desc = sprintf(__('A few easy steps to setup %s', 'adsense-now'), "<em>Now! Plugin for AdSense</em>");
       $this->helpTags[] = $o;
 
       $o = new EzHelpTag('help1');
@@ -203,7 +203,7 @@ if (!class_exists("AdsNow")) {
         $w = substr($key, 0, $x);
         $h = substr($key, $x + 1);
         $p = (int) (min($w, $h) / 6);
-        $ret = '<div style="width:' . $w . 'px;height:' . $h . 'px;border:1px solid red;"><div style="padding:' . $p . 'px;text-align:center;font-family:arial;font-size:8pt;"><p>Your ads will be inserted here by</p><p><b>AdSense Now!</b>.</p><p>Please go to the plugin admin page to paste your ad code.</p></div></div>';
+        $ret = '<div style="width:' . $w . 'px;height:' . $h . 'px;border:1px solid red;"><div style="padding:' . $p . 'px;text-align:center;font-family:arial;font-size:8pt;"><p>Your ads will be inserted here by</p><p><b>Now! Plugin for AdSense</b>.</p><p>Please go to the plugin admin page to paste your ad code.</p></div></div>';
       }
       return $ret;
     }
