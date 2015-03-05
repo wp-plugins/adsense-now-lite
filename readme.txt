@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 4.1
-Stable tag: 4.60
+Stable tag: 4.61
 License: GPL2 or later
 
 Now! Plugin for AdSense gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
@@ -23,11 +23,23 @@ Now! Plugin for AdSense is the simplest possible way to generate revenue from yo
 
 PS: You'll need a [Google AdSense Account](http://adsense.google.com/).
 
-Now! Plugin for AdSense is the freely distributed version of a premium plugin. The [Pro version](http://buy.thulasidas.com/adsense-now/ "Pro version of the Now! Plugin for AdSense plugin for only $3.95") gives you more control. It gives you filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned.
+Now! Plugin for AdSense is the freely distributed version of a premium plugin. The [Pro version](http://buy.thulasidas.com/adsense-now "Pro version of the Now! Plugin for AdSense plugin for only $6.95") gives you more control. Here is a list of the Pro features:
+
+1. Safe Content filter: To ensure that your Google AdSense ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies.
+2. IP filter: Ability to specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned.
+3. Compatibility mode: To solve the issue of the ad insertion messing up your page appearances when using some themes.
+5. Category/Post Control: Ability to suppress ads on specific categories, posts and pages.
+5. Shortcode Support: Show the ads only on the pages or posts you want, and exactly where you want them.
+6. Mobile Support: Ability to show different sets of ads on mobile devices, or to suppress ads.
+7. Excerpts: Ability to show a configurable number of ads on Excerpts (which make up the home page in some themes).
+8. Option Sets: Multiple option sets can be defined and easily switched between.
+9. Suspend Ads: Ability to temporarily suppress ad serving.
+10. Admin Interface Themes: Multiple color schemes for the admin interface.
+11. Ad Serving Statistics: Keep an eye on your ad serving statistics to make sure that Google is not shortchanging you. (Optional paid module)
 
 == Upgrade Notice ==
 
-Compatibility with WP4.1.
+Changes to prepare for V5.00 - a complete rewrite of the plugin.
 
 == Screenshots ==
 
@@ -47,7 +59,7 @@ Now! Plugin for AdSense draws a red box on your blog posts to show where the ads
 
 = What are the different versions of the plugin? =
 
-Now! Plugin for AdSense is the freely distributed version of a premium plugin. The [Pro version](https://buy.thulasidas.com/adsense-now "Pro version of the AdSense Now plugin") gives you more benefits -- lets you activate a filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned. The Pro version costs $3.95, and is appropriate if you expect to make more than $100 of ad revenue from your site.
+Now! Plugin for AdSense is the freely distributed version of a premium plugin. The [Pro version](https://buy.thulasidas.com/adsense-now "Pro version of the AdSense Now plugin") gives you more benefits -- lets you activate a filter to ensure that your ads show only on those pages that seem to comply with Google AdSense policies. It also lets you specify a list of computers where your ads will not be shown, in order to prevent accidental clicks on your own ads -- one of the main reasons AdSense bans you. These features will minimize your chance of getting banned. It fully supports mobile devices, can suppress ads on specific categories and posts, and has a beautifully designed admin interface based on the twitter bootstrap framework. The Pro version costs $6.95.
 
 = How can I contact the plugin author if I need help? =
 
@@ -89,7 +101,8 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 == Change Log ==
 
-* V4.60: Compatibility with WP4.1. [jan 8, 2015]
+* V4.61: Changes to prepare for V5.00 - a complete rewrite of the plugin. [Mar 5, 2015]
+* V4.60: Compatibility with WP4.1. [Jan 8, 2015]
 * V4.50: Renaming the plugin as requested by Google. [Nov 30, 2014]
 * V4.41: Minor change to the admin interface. [Sep 9, 2011]
 * V4.34: Compatibility with WP4.0. [Sep 6, 2014]
