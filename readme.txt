@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 4.1
-Stable tag: 5.06
+Stable tag: 5.07
 License: GPL2 or later
 
 Now! Plugin for AdSense gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
@@ -46,7 +46,7 @@ Documentation and usability enhancements.
 
 == Screenshots ==
 
-1. Now! Plugin for AdSense "Overview" tab.
+1. Now! Plugin for AdSense Dashboard.
 2. How to set the options for Now! Plugin for AdSense.
 3. Advanced configuration of the plugin.
 4. Options to support safety, compatibility, mobile devices and category/post control.
@@ -113,6 +113,7 @@ You can download the [previous version](https://downloads.wordpress.org/plugin/a
 
 == Change Log ==
 
+* V5.07: Documentation and usability enhancements. [Mar 13, 2015]
 * V5.06: Documentation and usability enhancements. [Mar 11, 2015]
 * V5.05: Various accumulated fixes. [Mar 10, 2015]
 * V5.04: Improvements in the login check functions. [Mar 9, 2015]

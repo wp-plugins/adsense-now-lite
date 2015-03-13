@@ -5,7 +5,7 @@
 
 <p><strong>AdSense Now! (AKA Now! Plugin for AdSense)</strong>: This plugin is for those who find the features of other AdSense plugins too overwhelming. Using AdSense Now!, you can quickly add up to three ad blocks (with the same ad code) on your posts and pages.</p>
 <p>
-  <a href='#' class="btn btn-primary btn-help" data-content="<p>Now! Plugin for AdSense is the simplest possible way to generate revenue from your blog using Google AdSense. Aiming at simplicity, Now! Plugin for AdSense does only one thing: it puts your AdSense code in up to three spots in your posts and pages (both existing ones and those yet to be written).</p><ol>
+  <a href='#' class="btn btn-primary btn-help" data-toggle='tooltip' title="<p>View plugin features.<br>What can this plugin do?</p>" data-content="<p>Now! Plugin for AdSense is the simplest possible way to generate revenue from your blog using Google AdSense. Aiming at simplicity, Now! Plugin for AdSense does only one thing: it puts your AdSense code in up to three spots in your posts and pages (both existing ones and those yet to be written).</p><ol>
      <li>Now! Plugin for AdSense enforces the Google policy of not more than three adsense blocks per page.</li>
      <li>Now! Plugin for AdSense sports the simplest possible configuration interface -- nothing more than cutting and pasting AdSense code.</li>
      <li>Now! Plugin for AdSense gives you an option to suppress ads on all pages (as opposed to posts), or on the front/home page, category/tag/archive listings.</li>
@@ -14,9 +14,9 @@
      <li>Now! Plugin for AdSense has popover help for every option in the plugin.</li>
      <li>Now! Plugin for AdSense gives you an interface tour to familiarize yourself with the plugin features and layout.</li>
      <li>Now! Plugin for AdSense has the ability to spawn the plugin interface as a separate tab/window independent of the WordPress admin interface.</li>
-     </ol>"><i class='glyphicon glyphicon-lock'></i> Features</a>
+     </ol>"><i class='glyphicon glyphicon-send'></i> Features</a>
 
-  <a href='#' class="btn btn-primary btn-help" data-content="<p>In addition to the fully functional Lite version, there is a <a href='http://buy.thulasidas.com/easy-adsense' title='Get AdSense Now! Pro for $6.95' class='goPro' data-product='adsense-now'>Pro Version</a> with many more features.</p>
+  <a href='#' class="btn btn-primary btn-help" data-toggle='tooltip' title="<p>View Pro Features of this Plugin.<br>Why go Pro? You get all the basic features plus these!</p>" data-content="<p>In addition to the fully functional Lite version, there is a <a href='http://buy.thulasidas.com/easy-adsense' title='Get AdSense Now! Pro for $6.95' class='goPro' data-product='adsense-now'>Pro Version</a> with many more features.</p>
      <p>If the following features are important to you, consider buying the <em>Pro</em> version.</p>
      <ol>
      <li>Safe Content filter: To ensure that your Google AdSense ads show only on those pages that seem to comply with Google AdSense policies, which can be important since some comments may render your pages inconsistent with those policies.</li>
@@ -30,17 +30,21 @@
      <li>Statistics: Keep a tab on your ad provider by collecting statistics on your ad serving. (<a href='#' class='goPro' data-product='adsense-stats'>Optional Module</a>)</li>
      </ol><div class='center-block'><a class='btn btn-sm btn-danger goPro' href='http://buy.thulasidas.com/adsense-now' title='Get Easy AdSense Pro for $6.95' data-product='adsense-now'>Go Pro!</a></div>"><i class='glyphicon glyphicon-plane'></i> Pro Features</a>
 
-  <a href='adsense-now-admin.php' class="btn btn-primary btn-info" data-toggle='tooltip' title="<p>Enter the configuration tab. You can also click on the <strong>AdSense Now!</strong> tab above.</p>"><i class='glyphicon glyphicon-cog'></i> Setup</a>
+  <a href='adsense-now-admin.php' class="btn btn-warning" data-toggle='tooltip' title="<p>Set up the plugin options and enter your AdSense code and details. You can also click on the <strong>AdSense Now!</strong> tab above.</p>"><i class='glyphicon glyphicon-cog'></i> Setup Plugin</a>
 
-  <a href='#' id='suspendAds' class="btn btn-primary btn-danger" data-toggle='tooltip' title="<p>Click to temporarily suspend ad serving.</p>"><i class='glyphicon glyphicon-pause'></i> Suspend Ads</a>
+  <a href='#' id='suspendAds' class="btn btn-danger" data-toggle='tooltip' title="<p>Pause ad serving.</p>"><i class='glyphicon glyphicon-pause'></i> Suspend Ads</a>
 
-  <a href='#' id='resumeAds' style='display:none' class="btn btn-primary btn-success" data-toggle='tooltip' title="<p>Click to resume ad serving.</p>"><i class='glyphicon glyphicon-play'></i> Resume Ads</a>
+  <a href='#' id='resumeAds' style='display:none' class="btn btn-success" data-toggle='tooltip' title="<p>Resume ad serving.</p>"><i class='glyphicon glyphicon-play'></i> Resume Ads</a>
+
+  <a href='#' id='migrateOptions' class="btn btn-success" data-toggle='tooltip' title="<p>This version of the plugin uses a new option model. If you used an older version before, your options are automatically imported when you activate the plugin. If you find them missing, please click this button to import them again. Note that your modified options are never overwritten by the migration process; so it is safe to run it again.</p>"><i class='glyphicon glyphicon-import'></i> Import Options</a>
 
 </p>
 
 <h3>Credits</h3>
 <ul>
   <li>Easy AdSense admin interface is based on <a href="http://usman.it/free-responsive-admin-template/">Charisma</a>, a free, responsive admin template built on the twitter bootstrap framework.
+  </li>
+  <li>The Pro version of this plugin uses <a href="http://mobiledetect.net/" target="_blank">Mobile Detect</a>, a lightweight PHP class for detecting mobile devices.
   </li>
 </ul>
 <script>
@@ -50,6 +54,20 @@
     });
     $("#resumeAds").click(function () {
       suspendAds('resume');
+    });
+    $("#migrateOptions").click(function (e) {
+      e.preventDefault();
+      var data = {};
+      data.action = 'migrate';
+      $.ajax({url: 'ajax/optionset.php',
+        type: 'POST',
+        data: data,
+        success: function (a) {
+          flashSuccess(a);
+        },
+        error: function (a) {
+          showError(a.responseText);
+        }});
     });
   });
 </script>
