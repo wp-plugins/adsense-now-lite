@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 4.1
-Stable tag: 5.07
+Stable tag: 5.10
 License: GPL2 or later
 
 Now! Plugin for AdSense gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
@@ -42,7 +42,7 @@ Now! Plugin for AdSense is the freely distributed version of a premium plugin. T
 
 == Upgrade Notice ==
 
-Documentation and usability enhancements.
+This twitter-bootstrap version of the plugin is now feature-complete.
 
 == Screenshots ==
 
@@ -53,11 +53,21 @@ Documentation and usability enhancements.
 
 == Installation ==
 
-The easiest way to install this plugin is to use the WordPress Admin interface. Go to your admin dashboard, find the "Plugins" menu, and click on "Add New". Find this plugin and click on "Install Now" and follow the WordPress instructions.
+= Searching =
+
+The easiest way to install this plugin is to use the WordPress Admin interface. Go to your admin dashboard, find the "Plugins" menu, and click on "Add New". Search for this plugin and click on "Install Now" and follow the WordPress instructions.
+
+= Uploading =
 
 If you want to download it and manually install, you can again use the WordPress dashboard interface. First download the plugin zip file to your local computer. Then go to your admin dashboard, find the "Plugins" menu, and click on "Add New". After clicking on the "Add New" menu item as above, click on "Upload" (below the title "Install Plugins" near the top). Browse for your downloaded zip file, upload it and activate the plugin.
 
-Further updates (and Pro upgrades and module installations) to the plugin can be done easily from the plugin admin page itself, by clicking on the Updates button on the top right corner.
+= Using Plugin Interface =
+
+Further updates (and Pro upgrades and module installations) to the plugin can be done easily from the plugin admin page itself, by clicking on the *Updates* button on the top right corner.
+
+= Tips =
+
+Although the Now! Plugin for AdSense plugin is designed to handle Google AdSense efficiently, there is nothing preventing you from using the text boxe to place any other kind of text in your blog posts and pages. In particular, you can use ad text from other providers.
 
 == Frequently Asked Questions ==
 
@@ -109,10 +119,12 @@ Please report any problems, and share your thoughts and comments [at the plugin 
 
 = Can I go back to the previous version of the plugin? I don't like the modern bootstrap/AJAX interface. =
 
-You can download the [previous version](https://downloads.wordpress.org/plugin/adsense-now-lite.4.60.zip "Last version before the fancy AJAX interface") and install it. First deactivate and delete the latest version of the plugin, and then follow upload method under the *Installation* section of this document. The new version uses an completely different options model, and your old options are left intact in your database.
+You can download the [previous version](https://downloads.wordpress.org/plugin/adsense-now-lite.4.61.zip "Last version before the fancy AJAX interface") and install it. First deactivate and delete the latest version of the plugin, and then follow the *Uploading* method under the *Installation* section of this document. The new version uses an completely different options model, and your old options are left intact in your database, so that you can go back anytime.
 
 == Change Log ==
 
+* V5.10: This twitter-bootstrap version of the plugin is now feature-complete. [Mar 19, 2015]
+* V5.09: Adding information about how to revert to the non-AJAX version of the plugin. [Mar 16, 2015]
 * V5.07: Documentation and usability enhancements. [Mar 13, 2015]
 * V5.06: Documentation and usability enhancements. [Mar 11, 2015]
 * V5.05: Various accumulated fixes. [Mar 10, 2015]
