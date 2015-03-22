@@ -2,47 +2,80 @@
 
 class AdSenseNowFront {
 
-  var $leadin, $leadout, $options, $defaultText;
+  var $leadin, $leadout, $options, $defaultText, $verbose = false;
   static $ezMax = 3, $ezCount = 0;
+  static $filterPass = 0, $info;
 
   function AdSenseNowFront() {
     $optionSet = EzGA::getMobileType();
     if ($optionSet == "Killed") {
+      EzGA::$noAdsReason .= 'Mobile Type says Killed. ';
       EzGA::$noAds = true;
       $optionSet = "";
     }
     $this->options = EzGA::getOptions($optionSet);
     $this->defaultText = $this->options['defaultText'];
+    self::$info = EzGA::info();
+    $this->verbose = !empty($this->options['verbose']);
   }
 
   function mkAdBlock($slot) {
+    $adBlock = '';
     self::$ezCount++;
     $adText = EzGA::handleDefaultText($this->options['ad_text']);
-    $info = EzGA::info();
-    if (empty($adText)) {
-      $adBlock = "\n$info\n<!-- Empty adText: Post[$slot] Count:" .
-              self::$ezCount . " of " . self::$ezMax . "-->\n";
-    }
-    else {
+    if (!empty($adText)) {
       $show = EzGA::$metaOptions["show_$slot"];
-      $adBlock = stripslashes("\n$info\n<!-- Post[$slot] Count:" .
-              self::$ezCount . " of " . self::$ezMax . "-->\n" .
-              "<div class='adsense adsense-$slot' style='$show;margin:12px'>" .
-              "$adText</div>\n$info\n");
+      $adBlock = "<div class='adsense adsense-$slot' style='$show;margin:12px'>$adText</div>";
     }
+    if ($this->verbose) {
+      $info = self::$info;
+      if (empty($adText)) {
+        $adBlock = "\n$info\n<!-- Empty adText: Post[$slot] Count:" .
+                self::$ezCount . " of " . self::$ezMax . "-->\n";
+      }
+      else {
+        $adBlock = "\n$info\n<!-- Post[$slot] Count:" .
+                self::$ezCount . " of " . self::$ezMax . "-->\n" .
+                $adBlock . "\n$info\n";
+        echo "\n$info\n <!--  ezCount = " . self::$ezCount . " - incremented at:\n";
+        debug_print_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+        echo "-->\n";
+      }
+    }
+    $adBlock = stripslashes($adBlock);
     return $adBlock;
   }
 
+  function resetFilter() {
+    if (self::$filterPass > 1 && is_singular()) {
+      self::$ezMax = $this->options['max_count'];
+      self::$ezCount = 0;
+      if ($this->verbose) {
+        return " <!-- Filter Reset -->\n";
+      }
+    }
+  }
+
   function filterContent($content) {
+    ++self::$filterPass;
+    $filterReset = $this->resetFilter();
+    $plgName = EzGA::getPlgName();
+    if ($this->verbose) {
+      $content .= " <!-- $plgName: EzCount = " . self::$ezCount .
+              " Filter Pass = " . self::$filterPass . "  -->\n";
+      $content .= $filterReset;
+    }
     $content = EzGA::preFilter($content);
     if (EzGA::$noAds) {
       return $content;
     }
 
-    $plgName = EzGA::getPlgName();
     if (self::$ezCount >= self::$ezMax) {
-      return $content . " <!-- $plgName: Unfiltered [count: " .
-              self::$ezCount . " is not less than " . self::$ezMax . "] -->";
+      if ($this->verbose) {
+        $content .= " <!-- $plgName: Unfiltered [count: " .
+                self::$ezCount . " is not less than " . self::$ezMax . "] -->\n";
+      }
+      return $content;
     }
 
     $adMax = self::$ezMax;
