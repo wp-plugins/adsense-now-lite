@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 4.1
-Stable tag: 5.19
+Stable tag: 5.21
 License: GPL2 or later
 
 Now! Plugin for AdSense gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
@@ -12,6 +12,10 @@ Now! Plugin for AdSense gets you started with Google AdSense. No mess, no fuss. 
 == Description ==
 
 Now! Plugin for AdSense is the simplest possible way to generate revenue from your blog using Google AdSense. Aiming at simplicity, Now! Plugin for AdSense does only one thing: it puts your AdSense code in up to three spots in your posts and pages (both existing ones and those yet to be written). The admin interface of this plugin uses a highly functional and modern interface based on the twitter bootstrap framework with generous, context-sensitive help on every single option.
+
+= Live Demo =
+
+**AdSense Now! admin interface is feature-rich, user-friendly and functional. Please visit this fully operational [live demo site](http://demo.thulasidas.com/adsense-now "Play with Easy AdSense Admin Interface") to see what it can do for you.**
 
 = Features =
 
@@ -42,7 +46,7 @@ Now! Plugin for AdSense is the freely distributed version of a premium plugin. T
 
 == Upgrade Notice ==
 
-More changes in the compatibility check.
+Improvements in the admin dashboard.
 
 == Screenshots ==
 
@@ -133,6 +137,8 @@ Note that it is only your own webserver that needs direct access to the PHP file
 
 == Change Log ==
 
+* V5.21: Improvements in the admin dashboard. [April 14, 2015]
+* V5.20: Launching a demo site. [April 11, 2015]
 * V5.19: More changes in the compatibility check. [April 7, 2015]
 * V5.18: Fixing a style that may have caused the admin page not to appear on some blogs. [April 4, 2015]
 * V5.17: More compatibility checks. [April 2, 2015]

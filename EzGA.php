@@ -33,7 +33,7 @@ if (!class_exists("EzGA")) {
       $plgSlug = self::getPlgMode();
       $plgSlug = str_replace("-ultra", "", $plgSlug);
       $plugin = basename(dirname(__FILE__)) . "/$plgSlug.php";
-      return is_plugin_active($plugin);
+      return is_plugin_active($plugin) || strpos(__FILE__, 'mu-plugins');;
     }
 
     static function isLoggedIn() {
@@ -54,7 +54,7 @@ if (!class_exists("EzGA")) {
         }
       }
       if (function_exists('current_user_can')) {
-        if (current_user_can('manage_options')) {
+        if (current_user_can('activate_plugins')) {
           $isLoggedIn = true;
         }
       }
@@ -761,7 +761,7 @@ if (!class_exists("EzGA")) {
 
     static function showService() {
       $select = rand(0, 4);
-      echo "<div class='center-block' style='margin-left:10px;'><a href='http://www.thulasidas.com/professional-php-services/' target='_blank' title='Professional Services' data-content='The author of this plugin may be able to help you with your WordPress or plugin customization needs and other PHP related development. Find a plugin that almost, but not quite, does what you are looking for? Need any other professional PHP/jQuery dev services? Click here!' data-toggle='popover' data-trigger='hover' data-placement='left'><img src='img/svcs/300x250-0$select.jpg' border='0' alt='Professional Services from the Plugin Author' /></a></div><div class='clearfix'></div>";
+      echo "<div class='center-block' style='margin-left:10px;'><a href='http://www.thulasidas.com/professional-php-services/' target='_blank' class='popup-long' title='Professional Services' data-content='The author of this plugin may be able to help you with your WordPress or plugin customization needs and other PHP related development. Find a plugin that almost, but not quite, does what you are looking for? Need any other professional PHP/jQuery dev services? Click here!' data-toggle='popover' data-trigger='hover' data-placement='left'><img src='img/svcs/300x250-0$select.jpg' border='0' alt='Professional Services from the Plugin Author' /></a></div><div class='clearfix'></div>";
     }
 
     // Frontend functions
@@ -834,7 +834,7 @@ if (!class_exists("EzGA")) {
     }
 
     static function mkRedBox($w, $h, $p) {
-      if (!current_user_can('manage_options')) {
+      if (!current_user_can('activate_plugins')) {
         return;
       }
       if (!empty(self::$options['suppressBoxes'])) {
