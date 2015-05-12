@@ -34,38 +34,5 @@
      <li>Pause Ad Serving: Ability to temporarily suspend ads</li>
      <li>Statistics: Keep a tab on your ad provider by collecting statistics on your ad serving. (<a href='#' class='goPro' data-product='adsense-stats'>Optional Module</a>)</li>
      </ol><div class='center-block'><a class='btn btn-sm btn-danger goPro' href='http://buy.thulasidas.com/adsense-now' title='Get Easy AdSense Pro for $6.95' data-product='adsense-now'>Go Pro!</a></div>"><i class='glyphicon glyphicon-plane'></i> Pro Features</a>
-
-  <a href='adsense-now-admin.php' class="btn btn-warning" data-toggle='tooltip' title="<p>Set up the plugin options and enter your AdSense code and details. You can also click on the <strong>AdSense Now!</strong> tab above.</p>"><i class='glyphicon glyphicon-cog'></i> Setup Plugin</a>
-
-  <a href='#' id='suspendAds' class="btn btn-danger" data-toggle='tooltip' title="<p>Pause ad serving.</p>"><i class='glyphicon glyphicon-pause'></i> Suspend Ads</a>
-
-  <a href='#' id='resumeAds' style='display:none' class="btn btn-success" data-toggle='tooltip' title="<p>Resume ad serving.</p>"><i class='glyphicon glyphicon-play'></i> Resume Ads</a>
-
-  <a href='#' id='migrateOptions' class="btn btn-success" data-toggle='tooltip' title="<p>This version of the plugin uses a new option model. If you used an older version before, your options are automatically imported when you activate the plugin. If you find them missing, please click this button to import them again. Note that your modified options are never overwritten by the migration process; so it is safe to run it again.</p>"><i class='glyphicon glyphicon-import'></i> Import Options</a>
-
 </p>
 <div class="clearfix"></div>
-<script>
-  $(document).ready(function () {
-    $("#suspendAds").click(function () {
-      suspendAds('suspend');
-    });
-    $("#resumeAds").click(function () {
-      suspendAds('resume');
-    });
-    $("#migrateOptions").click(function (e) {
-      e.preventDefault();
-      var data = {};
-      data.action = 'migrate';
-      $.ajax({url: 'ajax/optionset.php',
-        type: 'POST',
-        data: data,
-        success: function (a) {
-          flashSuccess(a);
-        },
-        error: function (a) {
-          showError(a.responseText);
-        }});
-    });
-  });
-</script>
