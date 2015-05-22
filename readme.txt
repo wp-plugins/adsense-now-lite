@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 4.2
-Stable tag: 5.31
+Stable tag: 5.32
 License: GPL2 or later
 
 Now! Plugin for AdSense gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
@@ -13,9 +13,11 @@ Now! Plugin for AdSense gets you started with Google AdSense. No mess, no fuss. 
 
 Now! Plugin for AdSense is the simplest possible way to generate revenue from your blog using Google AdSense. Aiming at simplicity, Now! Plugin for AdSense does only one thing: it puts your AdSense code in up to three spots in your posts and pages (both existing ones and those yet to be written). The admin interface of this plugin uses a highly functional and modern interface based on the twitter bootstrap framework with generous, context-sensitive help on every single option.
 
+If you have multiple blogs or websites where you would like your ads to appear, you may want to try [Ads EZ](http://www.thulasidas.com/ads-ez "Personal Ad Server") - a personal ad server fully compatible with this plugin. It is also available in the WordPress plugin directory.
+
 = Live Demo =
 
-**AdSense Now! admin interface is feature-rich, user-friendly and functional. Please visit this fully operational [live demo site](http://demo.thulasidas.com/adsense-now "Play with Easy AdSense Admin Interface") to see what it can do for you.**
+*AdSense Now! admin interface is feature-rich, user-friendly and functional. Please visit this fully operational* **[live demo site](http://demo.thulasidas.com/adsense-now "Play with Easy AdSense Admin Interface")** *to see what it can do for you.*
 
 = Features =
 
@@ -46,7 +48,7 @@ Now! Plugin for AdSense is the freely distributed version of a premium plugin. T
 
 == Upgrade Notice ==
 
-Admin page compatibility checks and improvements.
+Admin page improvements.
 
 == Screenshots ==
 
@@ -137,6 +139,7 @@ Note that it is only your own webserver that needs direct access to the PHP file
 
 == Change Log ==
 
+* V5.32: Admin page improvements. [May 22, 2015]
 * V5.31: Admin page compatibility checks and improvements. [May 12, 2015]
 * V5.30: Compatibility with WordPress 4.2. [April 25, 2015]
 * V5.23: Preparing the codebase for the release of AJAX AdSense. [April 17, 2015]
