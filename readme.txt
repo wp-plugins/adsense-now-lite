@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 4.2
-Stable tag: 5.32
+Stable tag: 5.33
 License: GPL2 or later
 
 Now! Plugin for AdSense gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
@@ -48,7 +48,7 @@ Now! Plugin for AdSense is the freely distributed version of a premium plugin. T
 
 == Upgrade Notice ==
 
-Admin page improvements.
+Documentation changes only.
 
 == Screenshots ==
 
@@ -117,6 +117,19 @@ If you just created the new Google AdSense code, it may not be active yet. Googl
 
 Yes! Now, in V1.1+, you have more options (using [Custom Fields](http://codex.wordpress.org/Custom_Fields "Scroll down to the section titled Usage")) to control adsense blocks in individual posts/pages. Add custom fields with keys like `adsense-top`, `adsense-middle`, `adsense-bottom`, `adsense-widget`, `adsense-search` and with values like `left`, `right`, `center` or `no` to have control how the Google adsense blocks show up in each post or page. A Custom Field `adsense` with  value `no` suppresses all AdSense ad blocks in the post or page.
 
+= How do I use shortcodes? =
+
+In the Pro version of this plugin, you can control the ad placements using the shortcode `[adsense]` in your blog posts and pages. If you would like to place your ads using shortcodes, please enable it on the Pro page.
+
+By default, only those ads specified by the shortcode will be displayed (when shortcodes are enabled). You can specify how the plugin handles shortcode priority using a drop-down menu. You have these choices:
+
+* Do auto placements if shortcode is missing
+* Do not place any ads if shortcode is missing
+* Always ignore shortcodes and do only auto placement
+* Do not place any ads in posts/pages
+
+The last option effectively disables the plugin for the body of posts and pages.
+
 = How do I report a bug or ask a question? =
 
 Please report any problems, and share your thoughts and comments [at the plugin forum at WordPress](http://wordpress.org/tags/adsense-now-lite "Post comments/suggestions/bugs on the WordPress.org forum. [Requires login/registration]") Or [contact me](http://support.thulasidas.com/ "Contact Manoj").
@@ -139,6 +152,7 @@ Note that it is only your own webserver that needs direct access to the PHP file
 
 == Change Log ==
 
+* V5.33: Documentation changes only. [Jun 18, 2015]
 * V5.32: Admin page improvements. [May 22, 2015]
 * V5.31: Admin page compatibility checks and improvements. [May 12, 2015]
 * V5.30: Compatibility with WordPress 4.2. [April 25, 2015]
