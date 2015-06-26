@@ -4,7 +4,7 @@
   Plugin Name: Now! Plugin for AdSense
   Plugin URI: http://www.thulasidas.com/adsense
   Description: <em>Lite Version</em>: Get started with AdSense now, and make money from your blog. Configure it at <a href="options-general.php?page=wp-google-adsense.php">Settings &rarr; AdSense Now! Lite</a>.
-  Version: 5.33
+  Version: 5.34
   Author: Manoj Thulasidas
   Author URI: http://www.thulasidas.com
  */
