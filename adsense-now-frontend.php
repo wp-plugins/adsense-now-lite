@@ -48,7 +48,7 @@ class AdSenseNowFront {
 
   function resetFilter() {
     if (self::$filterPass > 1 && is_singular()) {
-      self::$ezMax = $this->options['max_count'];
+      self::$ezMax = 3;
       self::$ezCount = 0;
       if ($this->verbose) {
         return " <!-- Filter Reset -->\n";
@@ -106,15 +106,7 @@ class AdSenseNowFront {
       if (self::$ezCount < self::$ezMax && $adCount++ < $adMax) {
         $midtext = $this->mkAdBlock("midtext");
         if (!EzGA::$foundShortCode) {
-          $paras = EzGA::findParas($content);
-          $half = sizeof($paras);
-          while (sizeof($paras) > $half) {
-            array_pop($paras);
-          }
-          $split = 0;
-          if (!empty($paras)) {
-            $split = $paras[floor(sizeof($paras) / 2)];
-          }
+          $split = EzGA::getSplit($content);
           $content = substr($content, 0, $split) . $midtext . substr($content, $split);
         }
       }
