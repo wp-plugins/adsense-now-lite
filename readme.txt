@@ -4,7 +4,7 @@ Donate link: http://buy.thulasidas.com/adsense-now
 Tags: adsense, google adsense, ads, advertising, google, adsense plugin
 Requires at least: 2.5
 Tested up to: 4.3
-Stable tag: 5.52
+Stable tag: 5.60
 License: GPL2 or later
 
 Now! Plugin for AdSense gets you started with Google AdSense. No mess, no fuss. Simplest Google AdSense plugin.
@@ -48,7 +48,7 @@ Now! Plugin for AdSense is the freely distributed version of a premium plugin. T
 
 == Upgrade Notice ==
 
-Fixing a minor error in text-wrapping around the bottom ad.
+Removing WP core file loading.
 
 == Screenshots ==
 
@@ -152,6 +152,7 @@ Note that it is only your own webserver that needs direct access to the PHP file
 
 == Change Log ==
 
+* V5.60: Removing WP core file loading. [Sep 4, 2015]
 * V5.52: Fixing a minor error in text-wrapping around the bottom ad. [Aug 20, 2015]
 * V5.51: Ensuring plugin admin files can be loaded in an iFrame. [Aug 19, 2015]
 * V5.50: Compatibility with WordPress 4.3. [Aug 10, 2015]
